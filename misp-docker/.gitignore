@@ -1,0 +1,13 @@
+/configs/
+/files/
+/gnupg/
+/logs/
+/ssl/
+.env
+env.hcl
+rootca.crt
+cert.pem
+docker-compose.override.yml
+.DS_Store
+.AppleDouble
+.LSOverride
