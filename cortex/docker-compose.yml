@@ -8,6 +8,8 @@ services:
       - script.allowed_types=inline
       - thread_pool.search.queue_size=100000
       - thread_pool.write.queue_size=10000
+    networks:
+      - cortex_internal
   cortex:
     image: thehiveproject/cortex:3.2
     environment:
@@ -19,6 +21,13 @@ services:
       - elasticsearch
     ports:
       - "0.0.0.0:9001:9001"
+    networks:
+      - valorh2_network
+      - cortex_internal
+    command: >
+      --analyzer-url https://catalogs.download.strangebee.com/latest/json/analyzers.json
 networks:
   valorh2_network:
     external: true
+  cortex_internal:
+    driver: bridge
