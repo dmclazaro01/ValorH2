@@ -23,7 +23,7 @@ services:
 
   db:
     # We use MariaDB because it supports ARM and has the expected collations
-    image: mariadb:10.11
+    image: misp_db_valorh2:latest
     restart: always
     environment:
       - "MYSQL_USER=${MYSQL_USER:-misp}"
@@ -52,7 +52,7 @@ services:
       start_interval: 5s
 
   misp-core:
-    image: ghcr.io/misp/misp-docker/misp-core:${CORE_RUNNING_TAG:-latest}
+    image: misp_core_valorh2:latest
     cap_add:
       - AUDIT_WRITE
     build:

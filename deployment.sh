@@ -21,6 +21,14 @@ fi
 
 export SHUFFLE_API_KEY
 
+#Cargar imagenes de la carpeta docker_images
+cd docker_images
+#Bucle para cargar cada .tar
+for img in *.tar; do
+    echo -e "${BLUE} Cargando imagen $img...${NC}"
+    docker load -i "$img"
+done
+
 echo -e "${BLUE} Iniciando despliegue del stack...${NC}"
 # Verificar directorios
 directories=("wazuh-docker-4.12.0" "misp-docker" "cortex" "iris-web" "shuffle")
@@ -195,19 +203,23 @@ cd ..
 # 3. MISP
 echo -e "${BLUE}🔍 Desplegando MISP...${NC}"
 cd misp-docker
+#Poner IP de la maquina en el .env dentro de BASE_URL
+sed -i "s|BASE_URL=.*|BASE_URL=https://$HOST_IP:4433|g" .env
 docker-compose up -d
 check_containers "MISP"
 # Verificar que el contenedor de misp-modules esté corriendo
 if [ $(docker ps -q -f name=misp-modules | wc -l) -eq 0 ]; then
     echo -e "${RED}El contenedor misp-modules no está corriendo${NC}"
-    #Volver a intentar el despliegue
-    echo -e "${YELLOW}Reintentando despliegue de MISP...${NC}"
-    docker-compose up -d misp-modules
-    if [ $? -eq 0 ]; then
-        echo -e "${GREEN} MISP Modules desplegado correctamente${NC}"
-    else
-        echo -e "${RED} Error al desplegar MISP Modules${NC}"
-    fi
+    #Volver a intentar el despliegue en bucle
+    while [ $(docker ps -q -f name=misp-modules | wc -l) -eq 0 ]; do
+        echo -e "${YELLOW}Reintentando despliegue de MISP...${NC}"
+        docker-compose up -d misp-modules
+        if [ $? -eq 0 ]; then
+            echo -e "${GREEN} MISP Modules desplegado correctamente${NC}"
+            break
+        fi
+    done
+    echo -e "${RED} Error al desplegar MISP Modules${NC}"
 fi
 cd ..
 

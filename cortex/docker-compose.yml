@@ -11,7 +11,7 @@ services:
     networks:
       - cortex_internal
   cortex:
-    image: thehiveproject/cortex:3.2
+    image: cortex_valorh2:latest
     environment:
       - job_directory=${job_directory}
     volumes:
