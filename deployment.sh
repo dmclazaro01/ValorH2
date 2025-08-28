@@ -37,71 +37,13 @@ done
 cd ..
 echo -e "${BLUE} Iniciando despliegue del stack...${NC}"
 # Verificar directorios
-directories=("wazuh-docker-4.12.0" "misp-docker" "cortex" "iris-web" "shuffle")
+directories=("wazuh-docker-4.12.0" "misp-docker" "iris-web" "shuffle")
 for dir in "${directories[@]}"; do
     if [ ! -d "$dir" ]; then
         echo -e "${RED} Directorio $dir no encontrado${NC}"
         exit 1
     fi
 done
-
-update_cortex_misp_analyzer() {
-    # --- CONFIGURACIÓN ---
-    local cortex_url="http://localhost:9001"
-    local analyzer_name="MISP_2_1"
-
-    # --- VALIDACIÓN DE VARIABLES ---
-    if [[ -z "$CORTEX_API_KEY" || -z "$MISP_IP" ]]; then
-        echo "Error: Las variables CORTEX_API_KEY y MISP_IP deben estar definidas."
-        return 1
-    fi
-
-    local new_url="https://""${MISP_IP}"":4433"
-
-    echo "  Iniciando la actualización para el analizador '${analyzer_name}'..."
-    echo "    Nueva URL a configurar: ${new_url}"
-
-    local analyzer_id="59bdc5839e13e9856602fdad86098dec"
-
-    # --- PASO 3: OBTENER Y MODIFICAR CONFIGURACIÓN ---
-    echo -n "    3. Obteniendo y modificando la configuración actual... "
-    local current_config
-    current_config=$(curl -s -k -H "Authorization: Bearer ${CORTEX_API_KEY}" "${cortex_url}/api/analyzer/${analyzer_id}")
-    
-    local final_payload
-    # --- LÍNEA CORREGIDA ---
-    # Se añade `[$new_url]` para crear un array con la URL como único elemento.
-    final_payload=$(echo "${current_config}" | jq --arg new_url "${new_url}" '(.configuration.url = [$new_url]) | {configuration: .configuration}')
-    
-    if [[ -z "$final_payload" ]]; then
-        echo " Error al modificar la configuración."
-        return 1
-    fi
-    echo " Hecho."
-
-    # --- PASO 4: ENVIAR ACTUALIZACIÓN ---
-    echo "    4. Enviando la nueva configuración a Cortex..."
-    local response
-    response=$(curl -s -k -w "\n%{http_code}" -X PATCH \
-      -H "Authorization: Bearer ${CORTEX_API_KEY}" \
-      -H "Content-Type: application/json" \
-      "${cortex_url}/api/analyzer/${analyzer_id}" \
-      -d "${final_payload}")
-    
-    local http_code
-    http_code=$(tail -n1 <<< "$response")
-    local body
-    body=$(sed '$ d' <<< "$response")
-
-    if [[ "$http_code" -eq 200 ]]; then
-        echo " ¡Éxito! La configuración del analizador ha sido actualizada."
-    else
-        echo " Error: La API devolvió el código de estado ${http_code}."
-        echo "Respuesta:"
-        echo "$body" | jq .
-        return 1
-    fi
-}
 
 # Función para verificar el estado de los contenedores
 check_containers() {
@@ -118,7 +60,6 @@ check_containers() {
     echo -e "${BLUE}Esperando 8 segundos para estabilización...${NC}"
     sleep 8
 }
-
 
 # Función para verificar puertos
 check_ports() {
@@ -298,36 +239,6 @@ fi
 
 cd ..
 
-# 4. Cortex
-echo -e "${BLUE} Desplegando Cortex...${NC}"
-cd cortex
-docker-compose up -d
-check_containers "Cortex"
-cd ..
-
-echo "--------------------------------------------------------"
-echo "Iniciando configuración de analizadores de Cortex..."
-echo "--------------------------------------------------------"
-
-# DEFINE LAS VARIABLES REQUERIDAS ANTES DE LLAMAR A LA FUNCIÓN
-export CORTEX_API_KEY="prZY/OChDUr54hvOMjVW80bXcYE8/+Fc"
-echo $HOST_IP
-export MISP_IP=$HOST_IP 
-# LLAMA A LA FUNCIÓN Y VERIFICA SU CÓDIGO DE SALIDA
-if update_cortex_misp_analyzer; then
-    echo "Configuración del analizador MISP finalizada con éxito."
-else
-    echo "Falló la configuración del analizador MISP. Revisar los logs."
-    # Opcional: puedes decidir terminar el script principal si esto falla
-    # exit 1 
-fi
-#Crear directorio cortex-jobs dentro del contenedor en /tmp
-docker exec -it cortex-cortex-1 /bin/bash -c "mkdir -p /tmp/cortex-jobs"
-#Propietario cortex:cortex
-docker exec -it cortex-cortex-1 /bin/bash -c "chown -R cortex:cortex /tmp/cortex-jobs"
-
-echo "Directorio de trabajos de Cortex creado en /tmp/cortex-jobs"
-echo "--------------------------------------------------------"
 
 # 5. DFIR-IRIS
 echo -e "${BLUE}🔬 Desplegando DFIR-IRIS...${NC}"
@@ -430,12 +341,12 @@ echo ""
 echo -e "${BLUE}📋 URLs de acceso:${NC}"
 echo -e "${GREEN}- Wazuh Dashboard: https://localhost:443${NC}"
 echo -e "${GREEN}- MISP: http://localhost:8081 | https://localhost:4433${NC}"
-echo -e "${GREEN}- Cortex: http://localhost:9001${NC}"
+
 echo -e "${GREEN}- DFIR-IRIS: https://localhost:8443${NC}"
 echo -e "${GREEN}- Shuffle: http://localhost:3001${NC}"
 echo ""
 echo -e "${YELLOW} Para verificar el estado completo:${NC}"
-echo "docker ps -a | grep -E 'wazuh|misp|cortex|iris|shuffle'"
+echo "docker ps -a | grep -E 'wazuh|misp|iris|shuffle'"
 echo ""
 echo -e "${YELLOW} Para ver logs de un servicio específico:${NC}"
 echo "cd [directorio] && docker-compose logs -f [servicio]"
