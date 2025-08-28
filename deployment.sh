@@ -338,6 +338,8 @@ cd ..
 
 #Shuffle-Wazuh
 cd wazuh-docker-4.12.0/single-node
+#Hacer copia del ossec_template.conf a ossec.conf
+cp ossec_template.conf ossec.conf
 #Verificar que existe un ossec.conf en la carpeta
 if [ ! -f ossec.conf ]; then
     echo -e "${RED} ossec.conf no encontrado en el directorio actual${NC}"
@@ -385,8 +387,8 @@ else
             fi
         fi
 
-        #Reemplazar localhost por la IP en el webhook de shuffle en ossec.conf
-        sed -i "s/localhost:/$HOST_IP:/g" ossec.conf
+        #Reemplazar localhost por shuffle-frontend en el webhook de shuffle en ossec.conf
+        sed -i "s/localhost:/shuffle-frontend:/g" ossec.conf
         
         #Copiar el archivo al contenedor
         echo -e "${YELLOW}Copiando ossec.conf al contenedor wazuh-manager...${NC}"
