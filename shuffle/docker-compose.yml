@@ -15,7 +15,7 @@ services:
     depends_on:
       - backend
   backend:
-    image: shuffle_backend_valorh2:latest
+    image: ghcr.io/shuffle/shuffle-backend:latest
     container_name: shuffle-backend
     hostname: ${BACKEND_HOSTNAME}
     # Here for debugging:
@@ -57,7 +57,6 @@ services:
       - SHUFFLE_PASS_APP_PROXY=${SHUFFLE_PASS_APP_PROXY}
       - SHUFFLE_STATS_DISABLED=true
       - SHUFFLE_LOGS_DISABLED=true
-      - SHUFFLE_SWARM_CONFIG=run
       - SHUFFLE_WORKER_IMAGE=ghcr.io/shuffle/shuffle-worker:latest
     env_file: .env
     restart: unless-stopped

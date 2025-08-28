@@ -31,7 +31,11 @@ services:
     extends:
       file: docker-compose.base.yml
       service: app
-    image: iriswebapp_app_valorh2:latest 
+    image: iriswebapp_app_valorh2:latest
+    networks:
+      - valorh2_network
+      - iris_backend
+      - iris_frontend
 
   worker:
     extends:
@@ -44,6 +48,9 @@ services:
       file: docker-compose.base.yml
       service: nginx
     image: ${NGINX_IMAGE_NAME:-ghcr.io/dfir-iris/iriswebapp_nginx}:${NGINX_IMAGE_TAG:-v2.4.14}
+    networks:
+      - valorh2_network
+      - iris_frontend
 
 volumes:
   iris-downloads:
