@@ -18,10 +18,38 @@ else
     exit 1
 fi
 
+# Verificar directorios
+directories=("wazuh-docker-4.12.0" "misp-docker" "iris-web" "shuffle")
+for dir in "${directories[@]}"; do
+    if [ ! -d "$dir" ]; then
+        echo -e "${RED} Directorio $dir no encontrado${NC}"
+        exit 1
+    fi
+done
+
 export SHUFFLE_API_KEY
 #Obtener la direccion IP de la maquina host
 HOST_IP=$(hostname -I | awk '{print $1}')
 #Cargar imagenes de la carpeta docker_images
+#Comprobar si existe el directorio docker_images y además un tar.gz dentro de la carpeta de misp-docker 
+if [ ! -d "docker_images" ]; then
+    if [ ! -f "misp-docker/*.tar.gz" ]; then
+        echo -e "${RED} No se ha extraido el tar.gz de Google Drive${NC}"
+        #Si no está en la carpeta el docker_images_backupmisp.zip no se sigue, si no se extrae
+        if [ ! -f "docker_images_backupmisp.zip" ]; then
+            echo -e "${RED} No se encontró el archivo docker_images_backupmisp.zip${NC}"
+            exit 1
+        else
+            echo -e "${GREEN} Se encontró el archivo docker_images_backupmisp.zip${NC}"
+            #Extraer sin especificar salida
+            unzip -o docker_images_backupmisp.zip
+            #Mover el tar.gz extraído de aquí a la carpeta de misp
+            mv *.tar.gz misp-docker/
+        fi
+    fi
+fi
+
+
 cd docker_images
 #Bucle para cargar cada .tar
 for img in *.tar; do
@@ -36,14 +64,7 @@ done
 
 cd ..
 echo -e "${BLUE} Iniciando despliegue del stack...${NC}"
-# Verificar directorios
-directories=("wazuh-docker-4.12.0" "misp-docker" "iris-web" "shuffle")
-for dir in "${directories[@]}"; do
-    if [ ! -d "$dir" ]; then
-        echo -e "${RED} Directorio $dir no encontrado${NC}"
-        exit 1
-    fi
-done
+
 
 # Función para verificar el estado de los contenedores
 check_containers() {
