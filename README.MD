@@ -20,7 +20,7 @@ realizar configuraciones manuales siguiendo la guía oficial: https://documentat
 
 Donde webhook_id será el identificador del hook que aparecerá al importar el flujo de trabajo dentro de Shuffle. Tras ello, guardar el ossec.conf y reiniciar el cluster.
 
--En caso de error en el despliegue de MISP, repetir el docker compose up -d. En ocasiones los contenedores misp-core/misp-modules dan errores al ser el primer despliegue.
+-En caso de error en el despliegue de MISP, repetir el docker compose up -d. En ocasiones los contenedores misp-core/misp-modules dan errores al ser el primer despliegue. Además puede tardar unos minutos en aparecer como accesible en el navegador.
 
 -MISP no viene preconfigurado, por lo tanto las credenciales serán las predefinidas (están al final del documento). Será necesario para hacer funcionar la aplicación obtener una Auth Key (Admin->Auth Keys->Add authentication key). Anota esa key para introducirla después en Shuffle.
 También será necesario descargar feeds para buscar los eventos (Sync Actions -> Feeds). Seleccionando las dos que aparecen se pueden activar en primer lugar para después ya descargarlas en "Fetch and store all feed data".
