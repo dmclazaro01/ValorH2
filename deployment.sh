@@ -22,15 +22,16 @@ HOST_IP=$(hostname -I | awk '{print $1}')
 #Comprobar si existe el directorio docker_images y además un tar.gz dentro de la carpeta de misp-docker 
 if ! ls misp-docker/*.tar.gz >/dev/null 2>&1; then
     echo -e "${RED} No se ha extraido el tar.gz de Google Drive${NC}"
-    #Si no está en la carpeta el backupmisp.zip no se sigue, si no se extrae
-    if [ ! -f "backupmisp.zip" ]; then
-        echo -e "${RED} No se encontró el archivo backupmisp.zip${NC}"
-    else
-        echo -e "${GREEN} Se encontró el archivo backupmisp.zip${NC}"
-        #Extraer sin especificar salida
-        unzip -o backupmisp.zip
+    #Buscar en esta carpeta actual el .tar.gz
+    if ls *.tar.gz >/dev/null 2>&1; then
+        echo -e "${GREEN} Se encontró un archivo tar.gz en el directorio actual${NC}"
+        #Extraer el tar.gz en la carpeta misp-docker
         #Mover el tar.gz extraído de aquí a la carpeta de misp
         mv *.tar.gz misp-docker/
+    else
+        echo -e "${RED} No se encontró ningún archivo tar.gz en el directorio actual${NC}"
+        echo -e "${YELLOW} Por favor, descarga y extrae el tar.gz desde Google Drive en la carpeta misp-docker/${NC}"
+        exit 1
     fi
 fi
 
