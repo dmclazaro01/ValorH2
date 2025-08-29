@@ -1,0 +1,200 @@
+{
+	"info": {
+		"_postman_id": "db087ebf-be59-45a4-aa0b-c7c82103d361",
+		"name": "URLHAUS",
+		"description": "[https://urlhaus-api.abuse.ch/](https://urlhaus-api.abuse.ch/)",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "25853661"
+	},
+	"item": [
+		{
+			"name": "host",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "host",
+							"value": "182.56.251.61",
+							"type": "text",
+							"disabled": true
+						},
+						{
+							"key": "host",
+							"value": "80.66.88.222",
+							"type": "text",
+							"disabled": true
+						},
+						{
+							"key": "host",
+							"value": "115.49.72.107",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "https://urlhaus-api.abuse.ch/v1/host/",
+					"protocol": "https",
+					"host": [
+						"urlhaus-api",
+						"abuse",
+						"ch"
+					],
+					"path": [
+						"v1",
+						"host",
+						""
+					]
+				},
+				"description": "To retrieve information about a `host`, you must send a `HTTP POST` request to URLhaus as documented below."
+			},
+			"response": []
+		},
+		{
+			"name": "URL",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "url",
+							"value": "https://wtools.io/paste-code/bRzk",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "https://urlhaus-api.abuse.ch/v1/url/",
+					"protocol": "https",
+					"host": [
+						"urlhaus-api",
+						"abuse",
+						"ch"
+					],
+					"path": [
+						"v1",
+						"url",
+						""
+					]
+				},
+				"description": "To retrieve information about an URL, you must send a `HTTP POST` request to URLhaus as documented below."
+			},
+			"response": []
+		},
+		{
+			"name": "payload",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "md5_hash",
+							"value": "12c8aec5766ac3e6f26f2505e2f4a8f2",
+							"type": "text"
+						},
+						{
+							"key": "sha256_hash",
+							"value": "",
+							"type": "text",
+							"disabled": true
+						}
+					]
+				},
+				"url": {
+					"raw": "https://urlhaus-api.abuse.ch/v1/payload/",
+					"protocol": "https",
+					"host": [
+						"urlhaus-api",
+						"abuse",
+						"ch"
+					],
+					"path": [
+						"v1",
+						"payload",
+						""
+					]
+				},
+				"description": "To retrieve information about a payload (_malware sample_) that URLhaus has retrieved, you must send a `HTTP POST` request to URLhaus as documented below."
+			},
+			"response": []
+		},
+		{
+			"name": "tag",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "tag",
+							"value": "Retefe",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "https://urlhaus-api.abuse.ch/v1/tag/",
+					"protocol": "https",
+					"host": [
+						"urlhaus-api",
+						"abuse",
+						"ch"
+					],
+					"path": [
+						"v1",
+						"tag",
+						""
+					]
+				},
+				"description": "To retrieve information about a `tag`, you must send a `HTTP POST` request to URLhaus as documented below."
+			},
+			"response": []
+		},
+		{
+			"name": "signature",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "signature",
+							"value": "Gozi",
+							"type": "text",
+							"disabled": true
+						},
+						{
+							"key": "signature",
+							"value": "Mozi",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "https://urlhaus-api.abuse.ch/v1/signature/",
+					"protocol": "https",
+					"host": [
+						"urlhaus-api",
+						"abuse",
+						"ch"
+					],
+					"path": [
+						"v1",
+						"signature",
+						""
+					]
+				},
+				"description": "URLhaus tries to identify the malware family of a payload (malware sample) served by malware URLs. Unlink `tags`, the `signature` is something that the reporter of the malware URL can not influence. To retrieve information about a `signature`, you must send a `HTTP POST` request to URLhaus as documented below."
+			},
+			"response": []
+		}
+	]
+}

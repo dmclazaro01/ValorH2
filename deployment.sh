@@ -18,38 +18,19 @@ done
 
 #Obtener la direccion IP de la maquina host
 HOST_IP=$(hostname -I | awk '{print $1}')
-#Cargar imagenes de la carpeta docker_images
-#Comprobar si existe el directorio docker_images y además un tar.gz dentro de la carpeta de misp-docker 
-if ! ls misp-docker/*.tar.gz >/dev/null 2>&1; then
-    echo -e "${RED} No se ha extraido el tar.gz de Google Drive${NC}"
-    #Buscar en esta carpeta actual el .tar.gz
-    if ls *.tar.gz >/dev/null 2>&1; then
-        echo -e "${GREEN} Se encontró un archivo tar.gz en el directorio actual${NC}"
-        #Extraer el tar.gz en la carpeta misp-docker
-        #Mover el tar.gz extraído de aquí a la carpeta de misp
-        mv *.tar.gz misp-docker/
-    else
-        echo -e "${RED} No se encontró ningún archivo tar.gz en el directorio actual${NC}"
-        echo -e "${YELLOW} Por favor, descarga y extrae el tar.gz desde Google Drive en la carpeta misp-docker/${NC}"
-        exit 1
-    fi
-fi
-
 
 echo -e "${BLUE} Iniciando despliegue del stack...${NC}"
 
 # Función para verificar el estado de los contenedores
 check_containers() {
     echo -e "${YELLOW}Verificando contenedores en $1...${NC}"
-    docker-compose ps
-    
+    docker-compose ps  
     # Verificar que los contenedores estén healthy o running
     local failed_containers=$(docker-compose ps --filter "health=unhealthy" -q)
     if [ ! -z "$failed_containers" ]; then
         echo -e "${RED} Contenedores con problemas de salud detectados${NC}"
         docker-compose ps --filter "health=unhealthy"
     fi
-
     echo -e "${BLUE}Esperando 8 segundos para estabilización...${NC}"
     sleep 8
 }
@@ -201,32 +182,6 @@ if [ $attempt -eq $max_attempts ]; then
             echo -e "${YELLOW}Logs de misp-modules:${NC}"
             docker logs "$misp_modules_container" 2>/dev/null || echo "No se pudieron obtener logs"
         fi
-    fi
-fi
-
-#Obtener el nombre del tar presente de la carpeta y quitar la extension. Si no hay, indicar que falta el tar
-tar_name=$(ls -1 *.tar.gz 2>/dev/null | head -1 | sed 's/.tar.gz//')
-if [ -z "$tar_name" ]; then
-    echo -e "${YELLOW}  No se encontró ningún archivo tar para la base de datos.${NC}"
-else
-    echo -e "${GREEN}Nombre del tar encontrado: $tar_name${NC}"
-    
-    #Crear directorio backup dentro del contenedor misp-core y dentro de esa carpeta otra con el nombre del tar
-    if docker exec misp-docker-misp-core-1 mkdir -p /opt/backup && docker exec misp-docker-misp-core-1 mkdir -p /opt/backup/$tar_name; then
-        #Copiar el tar a la ruta del contenedor /var/www/MISP/tools/misp-backup
-        if docker cp $tar_name.tar.gz misp-docker-misp-core-1:/var/www/MISP/tools/misp-backup/; then
-            echo -e "${GREEN}✓ Archivo tar copiado correctamente${NC}"
-            #Ejecutar el misp-restore.sh del contenedor con argumento al tar tambien
-            if docker exec misp-docker-misp-core-1 /var/www/MISP/tools/misp-backup/misp-restore.sh $tar_name.tar.gz; then
-                echo -e "${GREEN}✓ Restauración completada exitosamente${NC}"
-            else
-                echo -e "${RED} Error durante la restauración${NC}"
-            fi
-        else
-            echo -e "${RED} Error al copiar el archivo tar${NC}"
-        fi
-    else
-        echo -e "${RED} Error al crear directorios en misp-core${NC}"
     fi
 fi
 

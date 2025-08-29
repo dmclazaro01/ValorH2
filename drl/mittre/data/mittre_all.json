@@ -1,0 +1,2733 @@
+{
+    "Reconnaissance": {
+        "tactid": "TA0043",
+        "Active Scanning": {
+            "tid": "T1595",
+            "subtechniques": {
+                "Scanning IP Blocks": {
+                    "stid": "T1595.001"
+                },
+                "Vulnerability Scanning": {
+                    "stid": "T1595.002"
+                },
+                "Wordlist Scanning": {
+                    "stid": "T1595.003"
+                }
+            }
+        },
+        "Gather Victim Host Information": {
+            "tid": "T1592",
+            "subtechniques": {
+                "Hardware": {
+                    "stid": "T1592.001"
+                },
+                "Software": {
+                    "stid": "T1592.002"
+                },
+                "Firmware": {
+                    "stid": "T1592.003"
+                },
+                "Client Configurations": {
+                    "stid": "T1592.004"
+                }
+            }
+        },
+        "Gather Victim Identity Information": {
+            "tid": "T1589",
+            "subtechniques": {
+                "Credentials": {
+                    "stid": "T1589.001"
+                },
+                "Email Addresses": {
+                    "stid": "T1589.002"
+                },
+                "Employee Names": {
+                    "stid": "T1589.003"
+                }
+            }
+        },
+        "Gather Victim Network Information": {
+            "tid": "T1590",
+            "subtechniques": {
+                "Domain Properties": {
+                    "stid": "T1590.001"
+                },
+                "DNS": {
+                    "stid": "T1590.002"
+                },
+                "Network Trust Dependencies": {
+                    "stid": "T1590.003"
+                },
+                "Network Topology": {
+                    "stid": "T1590.004"
+                },
+                "IP Addresses": {
+                    "stid": "T1590.005"
+                },
+                "Network Security Appliances": {
+                    "stid": "T1590.006"
+                }
+            }
+        },
+        "Gather Victim Org Information": {
+            "tid": "T1591",
+            "subtechniques": {
+                "Determine Physical Locations": {
+                    "stid": "T1591.001"
+                },
+                "Business Relationships": {
+                    "stid": "T1591.002"
+                },
+                "Identify Business Tempo": {
+                    "stid": "T1591.003"
+                },
+                "Identify Roles": {
+                    "stid": "T1591.004"
+                }
+            }
+        },
+        "Phishing for Information": {
+            "tid": "T1598",
+            "subtechniques": {
+                "Spearphishing Service": {
+                    "stid": "T1598.001"
+                },
+                "Spearphishing Attachment": {
+                    "stid": "T1598.002"
+                },
+                "Spearphishing Link": {
+                    "stid": "T1598.003"
+                },
+                "Spearphishing Voice": {
+                    "stid": "T1598.004"
+                }
+            }
+        },
+        "Search Closed Sources": {
+            "tid": "T1597",
+            "subtechniques": {
+                "Threat Intel Vendors": {
+                    "stid": "T1597.001"
+                },
+                "Purchase Technical Data": {
+                    "stid": "T1597.002"
+                }
+            }
+        },
+        "Search Open Technical Databases": {
+            "tid": "T1596",
+            "subtechniques": {
+                "DNS/Passive DNS": {
+                    "stid": "T1596.001"
+                },
+                "WHOIS": {
+                    "stid": "T1596.002"
+                },
+                "Digital Certificates": {
+                    "stid": "T1596.003"
+                },
+                "CDNs": {
+                    "stid": "T1596.004"
+                },
+                "Scan Databases": {
+                    "stid": "T1596.005"
+                }
+            }
+        },
+        "Search Open Websites/Domains": {
+            "tid": "T1593",
+            "subtechniques": {
+                "Social Media": {
+                    "stid": "T1593.001"
+                },
+                "Search Engines": {
+                    "stid": "T1593.002"
+                },
+                "Code Repositories": {
+                    "stid": "T1593.003"
+                }
+            }
+        },
+        "Search Victim-Owned Websites": {
+            "tid": "T1594"
+        },
+        "count": 10
+    },
+    "Resource Development": {
+        "tactid": "TA0042",
+        "Acquire Access": {
+            "tid": "T1650"
+        },
+        "Acquire Infrastructure": {
+            "tid": "T1583",
+            "subtechniques": {
+                "Domains": {
+                    "stid": "T1583.001"
+                },
+                "DNS Server": {
+                    "stid": "T1583.002"
+                },
+                "Virtual Private Server": {
+                    "stid": "T1583.003"
+                },
+                "Server": {
+                    "stid": "T1583.004"
+                },
+                "Botnet": {
+                    "stid": "T1583.005"
+                },
+                "Web Services": {
+                    "stid": "T1583.006"
+                },
+                "Serverless": {
+                    "stid": "T1583.007"
+                },
+                "Malvertising": {
+                    "stid": "T1583.008"
+                }
+            }
+        },
+        "Compromise Accounts": {
+            "tid": "T1586",
+            "subtechniques": {
+                "Social Media Accounts": {
+                    "stid": "T1586.001"
+                },
+                "Email Accounts": {
+                    "stid": "T1586.002"
+                },
+                "Cloud Accounts": {
+                    "stid": "T1586.003"
+                }
+            }
+        },
+        "Compromise Infrastructure": {
+            "tid": "T1584",
+            "subtechniques": {
+                "Domains": {
+                    "stid": "T1584.001"
+                },
+                "DNS Server": {
+                    "stid": "T1584.002"
+                },
+                "Virtual Private Server": {
+                    "stid": "T1584.003"
+                },
+                "Server": {
+                    "stid": "T1584.004"
+                },
+                "Botnet": {
+                    "stid": "T1584.005"
+                },
+                "Web Services": {
+                    "stid": "T1584.006"
+                },
+                "Serverless": {
+                    "stid": "T1584.007"
+                }
+            }
+        },
+        "Develop Capabilities": {
+            "tid": "T1587",
+            "subtechniques": {
+                "Malware": {
+                    "stid": "T1587.001"
+                },
+                "Code Signing Certificates": {
+                    "stid": "T1587.002"
+                },
+                "Digital Certificates": {
+                    "stid": "T1587.003"
+                },
+                "Exploits": {
+                    "stid": "T1587.004"
+                }
+            }
+        },
+        "Establish Accounts": {
+            "tid": "T1585",
+            "subtechniques": {
+                "Social Media Accounts": {
+                    "stid": "T1585.001"
+                },
+                "Email Accounts": {
+                    "stid": "T1585.002"
+                },
+                "Cloud Accounts": {
+                    "stid": "T1585.003"
+                }
+            }
+        },
+        "Obtain Capabilities": {
+            "tid": "T1588",
+            "subtechniques": {
+                "Malware": {
+                    "stid": "T1588.001"
+                },
+                "Tool": {
+                    "stid": "T1588.002"
+                },
+                "Code Signing Certificates": {
+                    "stid": "T1588.003"
+                },
+                "Digital Certificates": {
+                    "stid": "T1588.004"
+                },
+                "Exploits": {
+                    "stid": "T1588.005"
+                },
+                "Vulnerabilities": {
+                    "stid": "T1588.006"
+                }
+            }
+        },
+        "Stage Capabilities": {
+            "tid": "T1608",
+            "subtechniques": {
+                "Upload Malware": {
+                    "stid": "T1608.001"
+                },
+                "Upload Tool": {
+                    "stid": "T1608.002"
+                },
+                "Install Digital Certificate": {
+                    "stid": "T1608.003"
+                },
+                "Drive-by Target": {
+                    "stid": "T1608.004"
+                },
+                "Link Target": {
+                    "stid": "T1608.005"
+                },
+                "SEO Poisoning": {
+                    "stid": "T1608.006"
+                }
+            }
+        },
+        "count": 8
+    },
+    "Initial Access": {
+        "tactid": "TA0001",
+        "Content Injection": {
+            "tid": "T1659"
+        },
+        "Drive-by Compromise": {
+            "tid": "T1189"
+        },
+        "Exploit Public-Facing Application": {
+            "tid": "T1190"
+        },
+        "External Remote Services": {
+            "tid": "T1133"
+        },
+        "Hardware Additions": {
+            "tid": "T1200"
+        },
+        "Phishing": {
+            "tid": "T1566",
+            "subtechniques": {
+                "Spearphishing Attachment": {
+                    "stid": "T1566.001"
+                },
+                "Spearphishing Link": {
+                    "stid": "T1566.002"
+                },
+                "Spearphishing via Service": {
+                    "stid": "T1566.003"
+                },
+                "Spearphishing Voice": {
+                    "stid": "T1566.004"
+                }
+            }
+        },
+        "Replication Through Removable Media": {
+            "tid": "T1091"
+        },
+        "Supply Chain Compromise": {
+            "tid": "T1195",
+            "subtechniques": {
+                "Compromise Software Dependencies and Development Tools": {
+                    "stid": "T1195.001"
+                },
+                "Compromise Software Supply Chain": {
+                    "stid": "T1195.002"
+                },
+                "Compromise Hardware Supply Chain": {
+                    "stid": "T1195.003"
+                }
+            }
+        },
+        "Trusted Relationship": {
+            "tid": "T1199"
+        },
+        "Valid Accounts": {
+            "tid": "T1078",
+            "subtechniques": {
+                "Default Accounts": {
+                    "stid": "T1078.001"
+                },
+                "Domain Accounts": {
+                    "stid": "T1078.002"
+                },
+                "Local Accounts": {
+                    "stid": "T1078.003"
+                },
+                "Cloud Accounts": {
+                    "stid": "T1078.004"
+                }
+            }
+        },
+        "count": 10
+    },
+    "Execution": {
+        "tactid": "TA0002",
+        "Cloud Administration Command": {
+            "tid": "T1651"
+        },
+        "Command and Scripting Interpreter": {
+            "tid": "T1059",
+            "subtechniques": {
+                "PowerShell": {
+                    "stid": "T1059.001"
+                },
+                "AppleScript": {
+                    "stid": "T1059.002"
+                },
+                "Windows Command Shell": {
+                    "stid": "T1059.003"
+                },
+                "Unix Shell": {
+                    "stid": "T1059.004"
+                },
+                "Visual Basic": {
+                    "stid": "T1059.005"
+                },
+                "Python": {
+                    "stid": "T1059.006"
+                },
+                "JavaScript": {
+                    "stid": "T1059.007"
+                },
+                "Network Device CLI": {
+                    "stid": "T1059.008"
+                },
+                "Cloud API": {
+                    "stid": "T1059.009"
+                }
+            }
+        },
+        "Container Administration Command": {
+            "tid": "T1609"
+        },
+        "Deploy Container": {
+            "tid": "T1610"
+        },
+        "Exploitation for Client Execution": {
+            "tid": "T1203"
+        },
+        "Inter-Process Communication": {
+            "tid": "T1559",
+            "subtechniques": {
+                "Component Object Model": {
+                    "stid": "T1559.001"
+                },
+                "Dynamic Data Exchange": {
+                    "stid": "T1559.002"
+                },
+                "XPC Services": {
+                    "stid": "T1559.003"
+                }
+            }
+        },
+        "Native API": {
+            "tid": "T1106"
+        },
+        "Scheduled Task/Job": {
+            "tid": "T1053",
+            "subtechniques": {
+                "At": {
+                    "stid": "T1053.002"
+                },
+                "Cron": {
+                    "stid": "T1053.003"
+                },
+                "Scheduled Task": {
+                    "stid": "T1053.005"
+                },
+                "Systemd Timers": {
+                    "stid": "T1053.006"
+                },
+                "Container Orchestration Job": {
+                    "stid": "T1053.007"
+                }
+            }
+        },
+        "Serverless Execution": {
+            "tid": "T1648"
+        },
+        "Shared Modules": {
+            "tid": "T1129"
+        },
+        "Software Deployment Tools": {
+            "tid": "T1072"
+        },
+        "System Services": {
+            "tid": "T1569",
+            "subtechniques": {
+                "Launchctl": {
+                    "stid": "T1569.001"
+                },
+                "Service Execution": {
+                    "stid": "T1569.002"
+                }
+            }
+        },
+        "User Execution": {
+            "tid": "T1204",
+            "subtechniques": {
+                "Malicious Link": {
+                    "stid": "T1204.001"
+                },
+                "Malicious File": {
+                    "stid": "T1204.002"
+                },
+                "Malicious Image": {
+                    "stid": "T1204.003"
+                }
+            }
+        },
+        "Windows Management Instrumentation": {
+            "tid": "T1047"
+        },
+        "count": 14
+    },
+    "Persistence": {
+        "tactid": "TA0003",
+        "Account Manipulation": {
+            "tid": "T1098",
+            "subtechniques": {
+                "Additional Cloud Credentials": {
+                    "stid": "T1098.001"
+                },
+                "Additional Email Delegate Permissions": {
+                    "stid": "T1098.002"
+                },
+                "Additional Cloud Roles": {
+                    "stid": "T1098.003"
+                },
+                "SSH Authorized Keys": {
+                    "stid": "T1098.004"
+                },
+                "Device Registration": {
+                    "stid": "T1098.005"
+                },
+                "Additional Container Cluster Roles": {
+                    "stid": "T1098.006"
+                }
+            }
+        },
+        "BITS Jobs": {
+            "tid": "T1197"
+        },
+        "Boot or Logon Autostart Execution": {
+            "tid": "T1547",
+            "subtechniques": {
+                "Registry Run Keys / Startup Folder": {
+                    "stid": "T1547.001"
+                },
+                "Authentication Package": {
+                    "stid": "T1547.002"
+                },
+                "Time Providers": {
+                    "stid": "T1547.003"
+                },
+                "Winlogon Helper DLL": {
+                    "stid": "T1547.004"
+                },
+                "Security Support Provider": {
+                    "stid": "T1547.005"
+                },
+                "Kernel Modules and Extensions": {
+                    "stid": "T1547.006"
+                },
+                "Re-opened Applications": {
+                    "stid": "T1547.007"
+                },
+                "LSASS Driver": {
+                    "stid": "T1547.008"
+                },
+                "Shortcut Modification": {
+                    "stid": "T1547.009"
+                },
+                "Port Monitors": {
+                    "stid": "T1547.010"
+                },
+                "Print Processors": {
+                    "stid": "T1547.012"
+                },
+                "XDG Autostart Entries": {
+                    "stid": "T1547.013"
+                },
+                "Active Setup": {
+                    "stid": "T1547.014"
+                },
+                "Login Items": {
+                    "stid": "T1547.015"
+                }
+            }
+        },
+        "Boot or Logon Initialization Scripts": {
+            "tid": "T1037",
+            "subtechniques": {
+                "Logon Script (Windows)": {
+                    "stid": "T1037.001"
+                },
+                "Login Hook": {
+                    "stid": "T1037.002"
+                },
+                "Network Logon Script": {
+                    "stid": "T1037.003"
+                },
+                "RC Scripts": {
+                    "stid": "T1037.004"
+                },
+                "Startup Items": {
+                    "stid": "T1037.005"
+                }
+            }
+        },
+        "Browser Extensions": {
+            "tid": "T1176"
+        },
+        "Compromise Client Software Binary": {
+            "tid": "T1554"
+        },
+        "Create Account": {
+            "tid": "T1136",
+            "subtechniques": {
+                "Local Account": {
+                    "stid": "T1136.001"
+                },
+                "Domain Account": {
+                    "stid": "T1136.002"
+                },
+                "Cloud Account": {
+                    "stid": "T1136.003"
+                }
+            }
+        },
+        "Create or Modify System Process": {
+            "tid": "T1543",
+            "subtechniques": {
+                "Launch Agent": {
+                    "stid": "T1543.001"
+                },
+                "Systemd Service": {
+                    "stid": "T1543.002"
+                },
+                "Windows Service": {
+                    "stid": "T1543.003"
+                },
+                "Launch Daemon": {
+                    "stid": "T1543.004"
+                }
+            }
+        },
+        "Event Triggered Execution": {
+            "tid": "T1546",
+            "subtechniques": {
+                "Change Default File Association": {
+                    "stid": "T1546.001"
+                },
+                "Screensaver": {
+                    "stid": "T1546.002"
+                },
+                "Windows Management Instrumentation Event Subscription": {
+                    "stid": "T1546.003"
+                },
+                "Unix Shell Configuration Modification": {
+                    "stid": "T1546.004"
+                },
+                "Trap": {
+                    "stid": "T1546.005"
+                },
+                "LC_LOAD_DYLIB Addition": {
+                    "stid": "T1546.006"
+                },
+                "Netsh Helper DLL": {
+                    "stid": "T1546.007"
+                },
+                "Accessibility Features": {
+                    "stid": "T1546.008"
+                },
+                "AppCert DLLs": {
+                    "stid": "T1546.009"
+                },
+                "AppInit DLLs": {
+                    "stid": "T1546.010"
+                },
+                "Application Shimming": {
+                    "stid": "T1546.011"
+                },
+                "Image File Execution Options Injection": {
+                    "stid": "T1546.012"
+                },
+                "PowerShell Profile": {
+                    "stid": "T1546.013"
+                },
+                "Emond": {
+                    "stid": "T1546.014"
+                },
+                "Component Object Model Hijacking": {
+                    "stid": "T1546.015"
+                },
+                "Installer Packages": {
+                    "stid": "T1546.016"
+                }
+            }
+        },
+        "External Remote Services": {
+            "tid": "T1133"
+        },
+        "Hijack Execution Flow": {
+            "tid": "T1574",
+            "subtechniques": {
+                "DLL Search Order Hijacking": {
+                    "stid": "T1574.001"
+                },
+                "DLL Side-Loading": {
+                    "stid": "T1574.002"
+                },
+                "Dylib Hijacking": {
+                    "stid": "T1574.004"
+                },
+                "Executable Installer File Permissions Weakness": {
+                    "stid": "T1574.005"
+                },
+                "Dynamic Linker Hijacking": {
+                    "stid": "T1574.006"
+                },
+                "Path Interception by PATH Environment Variable": {
+                    "stid": "T1574.007"
+                },
+                "Path Interception by Search Order Hijacking": {
+                    "stid": "T1574.008"
+                },
+                "Path Interception by Unquoted Path": {
+                    "stid": "T1574.009"
+                },
+                "Services File Permissions Weakness": {
+                    "stid": "T1574.010"
+                },
+                "Services Registry Permissions Weakness": {
+                    "stid": "T1574.011"
+                },
+                "COR_PROFILER": {
+                    "stid": "T1574.012"
+                },
+                "KernelCallbackTable": {
+                    "stid": "T1574.013"
+                }
+            }
+        },
+        "Implant Internal Image": {
+            "tid": "T1525"
+        },
+        "Modify Authentication Process": {
+            "tid": "T1556",
+            "subtechniques": {
+                "Domain Controller Authentication": {
+                    "stid": "T1556.001"
+                },
+                "Password Filter DLL": {
+                    "stid": "T1556.002"
+                },
+                "Pluggable Authentication Modules": {
+                    "stid": "T1556.003"
+                },
+                "Network Device Authentication": {
+                    "stid": "T1556.004"
+                },
+                "Reversible Encryption": {
+                    "stid": "T1556.005"
+                },
+                "Multi-Factor Authentication": {
+                    "stid": "T1556.006"
+                },
+                "Hybrid Identity": {
+                    "stid": "T1556.007"
+                },
+                "Network Provider DLL": {
+                    "stid": "T1556.008"
+                }
+            }
+        },
+        "Office Application Startup": {
+            "tid": "T1137",
+            "subtechniques": {
+                "Office Template Macros": {
+                    "stid": "T1137.001"
+                },
+                "Office Test": {
+                    "stid": "T1137.002"
+                },
+                "Outlook Forms": {
+                    "stid": "T1137.003"
+                },
+                "Outlook Home Page": {
+                    "stid": "T1137.004"
+                },
+                "Outlook Rules": {
+                    "stid": "T1137.005"
+                },
+                "Add-ins": {
+                    "stid": "T1137.006"
+                }
+            }
+        },
+        "Power Settings": {
+            "tid": "T1653"
+        },
+        "Pre-OS Boot": {
+            "tid": "T1542",
+            "subtechniques": {
+                "System Firmware": {
+                    "stid": "T1542.001"
+                },
+                "Component Firmware": {
+                    "stid": "T1542.002"
+                },
+                "Bootkit": {
+                    "stid": "T1542.003"
+                },
+                "ROMMONkit": {
+                    "stid": "T1542.004"
+                },
+                "TFTP Boot": {
+                    "stid": "T1542.005"
+                }
+            }
+        },
+        "Scheduled Task/Job": {
+            "tid": "T1053",
+            "subtechniques": {
+                "At": {
+                    "stid": "T1053.002"
+                },
+                "Cron": {
+                    "stid": "T1053.003"
+                },
+                "Scheduled Task": {
+                    "stid": "T1053.005"
+                },
+                "Systemd Timers": {
+                    "stid": "T1053.006"
+                },
+                "Container Orchestration Job": {
+                    "stid": "T1053.007"
+                }
+            }
+        },
+        "Server Software Component": {
+            "tid": "T1505",
+            "subtechniques": {
+                "SQL Stored Procedures": {
+                    "stid": "T1505.001"
+                },
+                "Transport Agent": {
+                    "stid": "T1505.002"
+                },
+                "Web Shell": {
+                    "stid": "T1505.003"
+                },
+                "IIS Components": {
+                    "stid": "T1505.004"
+                },
+                "Terminal Services DLL": {
+                    "stid": "T1505.005"
+                }
+            }
+        },
+        "Traffic Signaling": {
+            "tid": "T1205",
+            "subtechniques": {
+                "Port Knocking": {
+                    "stid": "T1205.001"
+                },
+                "Socket Filters": {
+                    "stid": "T1205.002"
+                }
+            }
+        },
+        "Valid Accounts": {
+            "tid": "T1078",
+            "subtechniques": {
+                "Default Accounts": {
+                    "stid": "T1078.001"
+                },
+                "Domain Accounts": {
+                    "stid": "T1078.002"
+                },
+                "Local Accounts": {
+                    "stid": "T1078.003"
+                },
+                "Cloud Accounts": {
+                    "stid": "T1078.004"
+                }
+            }
+        },
+        "count": 20
+    },
+    "Privilege Escalation": {
+        "tactid": "TA0004",
+        "Abuse Elevation Control Mechanism": {
+            "tid": "T1548",
+            "subtechniques": {
+                "Setuid and Setgid": {
+                    "stid": "T1548.001"
+                },
+                "Bypass User Account Control": {
+                    "stid": "T1548.002"
+                },
+                "Sudo and Sudo Caching": {
+                    "stid": "T1548.003"
+                },
+                "Elevated Execution with Prompt": {
+                    "stid": "T1548.004"
+                },
+                "Temporary Elevated Cloud Access": {
+                    "stid": "T1548.005"
+                }
+            }
+        },
+        "Access Token Manipulation": {
+            "tid": "T1134",
+            "subtechniques": {
+                "Token Impersonation/Theft": {
+                    "stid": "T1134.001"
+                },
+                "Create Process with Token": {
+                    "stid": "T1134.002"
+                },
+                "Make and Impersonate Token": {
+                    "stid": "T1134.003"
+                },
+                "Parent PID Spoofing": {
+                    "stid": "T1134.004"
+                },
+                "SID-History Injection": {
+                    "stid": "T1134.005"
+                }
+            }
+        },
+        "Account Manipulation": {
+            "tid": "T1098",
+            "subtechniques": {
+                "Additional Cloud Credentials": {
+                    "stid": "T1098.001"
+                },
+                "Additional Email Delegate Permissions": {
+                    "stid": "T1098.002"
+                },
+                "Additional Cloud Roles": {
+                    "stid": "T1098.003"
+                },
+                "SSH Authorized Keys": {
+                    "stid": "T1098.004"
+                },
+                "Device Registration": {
+                    "stid": "T1098.005"
+                },
+                "Additional Container Cluster Roles": {
+                    "stid": "T1098.006"
+                }
+            }
+        },
+        "Boot or Logon Autostart Execution": {
+            "tid": "T1547",
+            "subtechniques": {
+                "Registry Run Keys / Startup Folder": {
+                    "stid": "T1547.001"
+                },
+                "Authentication Package": {
+                    "stid": "T1547.002"
+                },
+                "Time Providers": {
+                    "stid": "T1547.003"
+                },
+                "Winlogon Helper DLL": {
+                    "stid": "T1547.004"
+                },
+                "Security Support Provider": {
+                    "stid": "T1547.005"
+                },
+                "Kernel Modules and Extensions": {
+                    "stid": "T1547.006"
+                },
+                "Re-opened Applications": {
+                    "stid": "T1547.007"
+                },
+                "LSASS Driver": {
+                    "stid": "T1547.008"
+                },
+                "Shortcut Modification": {
+                    "stid": "T1547.009"
+                },
+                "Port Monitors": {
+                    "stid": "T1547.010"
+                },
+                "Print Processors": {
+                    "stid": "T1547.012"
+                },
+                "XDG Autostart Entries": {
+                    "stid": "T1547.013"
+                },
+                "Active Setup": {
+                    "stid": "T1547.014"
+                },
+                "Login Items": {
+                    "stid": "T1547.015"
+                }
+            }
+        },
+        "Boot or Logon Initialization Scripts": {
+            "tid": "T1037",
+            "subtechniques": {
+                "Logon Script (Windows)": {
+                    "stid": "T1037.001"
+                },
+                "Login Hook": {
+                    "stid": "T1037.002"
+                },
+                "Network Logon Script": {
+                    "stid": "T1037.003"
+                },
+                "RC Scripts": {
+                    "stid": "T1037.004"
+                },
+                "Startup Items": {
+                    "stid": "T1037.005"
+                }
+            }
+        },
+        "Create or Modify System Process": {
+            "tid": "T1543",
+            "subtechniques": {
+                "Launch Agent": {
+                    "stid": "T1543.001"
+                },
+                "Systemd Service": {
+                    "stid": "T1543.002"
+                },
+                "Windows Service": {
+                    "stid": "T1543.003"
+                },
+                "Launch Daemon": {
+                    "stid": "T1543.004"
+                }
+            }
+        },
+        "Domain Policy Modification": {
+            "tid": "T1484",
+            "subtechniques": {
+                "Group Policy Modification": {
+                    "stid": "T1484.001"
+                },
+                "Domain Trust Modification": {
+                    "stid": "T1484.002"
+                }
+            }
+        },
+        "Escape to Host": {
+            "tid": "T1611"
+        },
+        "Event Triggered Execution": {
+            "tid": "T1546",
+            "subtechniques": {
+                "Change Default File Association": {
+                    "stid": "T1546.001"
+                },
+                "Screensaver": {
+                    "stid": "T1546.002"
+                },
+                "Windows Management Instrumentation Event Subscription": {
+                    "stid": "T1546.003"
+                },
+                "Unix Shell Configuration Modification": {
+                    "stid": "T1546.004"
+                },
+                "Trap": {
+                    "stid": "T1546.005"
+                },
+                "LC_LOAD_DYLIB Addition": {
+                    "stid": "T1546.006"
+                },
+                "Netsh Helper DLL": {
+                    "stid": "T1546.007"
+                },
+                "Accessibility Features": {
+                    "stid": "T1546.008"
+                },
+                "AppCert DLLs": {
+                    "stid": "T1546.009"
+                },
+                "AppInit DLLs": {
+                    "stid": "T1546.010"
+                },
+                "Application Shimming": {
+                    "stid": "T1546.011"
+                },
+                "Image File Execution Options Injection": {
+                    "stid": "T1546.012"
+                },
+                "PowerShell Profile": {
+                    "stid": "T1546.013"
+                },
+                "Emond": {
+                    "stid": "T1546.014"
+                },
+                "Component Object Model Hijacking": {
+                    "stid": "T1546.015"
+                },
+                "Installer Packages": {
+                    "stid": "T1546.016"
+                }
+            }
+        },
+        "Exploitation for Privilege Escalation": {
+            "tid": "T1068"
+        },
+        "Hijack Execution Flow": {
+            "tid": "T1574",
+            "subtechniques": {
+                "DLL Search Order Hijacking": {
+                    "stid": "T1574.001"
+                },
+                "DLL Side-Loading": {
+                    "stid": "T1574.002"
+                },
+                "Dylib Hijacking": {
+                    "stid": "T1574.004"
+                },
+                "Executable Installer File Permissions Weakness": {
+                    "stid": "T1574.005"
+                },
+                "Dynamic Linker Hijacking": {
+                    "stid": "T1574.006"
+                },
+                "Path Interception by PATH Environment Variable": {
+                    "stid": "T1574.007"
+                },
+                "Path Interception by Search Order Hijacking": {
+                    "stid": "T1574.008"
+                },
+                "Path Interception by Unquoted Path": {
+                    "stid": "T1574.009"
+                },
+                "Services File Permissions Weakness": {
+                    "stid": "T1574.010"
+                },
+                "Services Registry Permissions Weakness": {
+                    "stid": "T1574.011"
+                },
+                "COR_PROFILER": {
+                    "stid": "T1574.012"
+                },
+                "KernelCallbackTable": {
+                    "stid": "T1574.013"
+                }
+            }
+        },
+        "Process Injection": {
+            "tid": "T1055",
+            "subtechniques": {
+                "Dynamic-link Library Injection": {
+                    "stid": "T1055.001"
+                },
+                "Portable Executable Injection": {
+                    "stid": "T1055.002"
+                },
+                "Thread Execution Hijacking": {
+                    "stid": "T1055.003"
+                },
+                "Asynchronous Procedure Call": {
+                    "stid": "T1055.004"
+                },
+                "Thread Local Storage": {
+                    "stid": "T1055.005"
+                },
+                "Ptrace System Calls": {
+                    "stid": "T1055.008"
+                },
+                "Proc Memory": {
+                    "stid": "T1055.009"
+                },
+                "Extra Window Memory Injection": {
+                    "stid": "T1055.011"
+                },
+                "Process Hollowing": {
+                    "stid": "T1055.012"
+                },
+                "Process Doppelg\u00e4nging": {
+                    "stid": "T1055.013"
+                },
+                "VDSO Hijacking": {
+                    "stid": "T1055.014"
+                },
+                "ListPlanting": {
+                    "stid": "T1055.015"
+                }
+            }
+        },
+        "Scheduled Task/Job": {
+            "tid": "T1053",
+            "subtechniques": {
+                "At": {
+                    "stid": "T1053.002"
+                },
+                "Cron": {
+                    "stid": "T1053.003"
+                },
+                "Scheduled Task": {
+                    "stid": "T1053.005"
+                },
+                "Systemd Timers": {
+                    "stid": "T1053.006"
+                },
+                "Container Orchestration Job": {
+                    "stid": "T1053.007"
+                }
+            }
+        },
+        "Valid Accounts": {
+            "tid": "T1078",
+            "subtechniques": {
+                "Default Accounts": {
+                    "stid": "T1078.001"
+                },
+                "Domain Accounts": {
+                    "stid": "T1078.002"
+                },
+                "Local Accounts": {
+                    "stid": "T1078.003"
+                },
+                "Cloud Accounts": {
+                    "stid": "T1078.004"
+                }
+            }
+        },
+        "count": 14
+    },
+    "Defense Evasion": {
+        "tactid": "TA0005",
+        "Abuse Elevation Control Mechanism": {
+            "tid": "T1548",
+            "subtechniques": {
+                "Setuid and Setgid": {
+                    "stid": "T1548.001"
+                },
+                "Bypass User Account Control": {
+                    "stid": "T1548.002"
+                },
+                "Sudo and Sudo Caching": {
+                    "stid": "T1548.003"
+                },
+                "Elevated Execution with Prompt": {
+                    "stid": "T1548.004"
+                },
+                "Temporary Elevated Cloud Access": {
+                    "stid": "T1548.005"
+                }
+            }
+        },
+        "Access Token Manipulation": {
+            "tid": "T1134",
+            "subtechniques": {
+                "Token Impersonation/Theft": {
+                    "stid": "T1134.001"
+                },
+                "Create Process with Token": {
+                    "stid": "T1134.002"
+                },
+                "Make and Impersonate Token": {
+                    "stid": "T1134.003"
+                },
+                "Parent PID Spoofing": {
+                    "stid": "T1134.004"
+                },
+                "SID-History Injection": {
+                    "stid": "T1134.005"
+                }
+            }
+        },
+        "BITS Jobs": {
+            "tid": "T1197"
+        },
+        "Build Image on Host": {
+            "tid": "T1612"
+        },
+        "Debugger Evasion": {
+            "tid": "T1622"
+        },
+        "Deobfuscate/Decode Files or Information": {
+            "tid": "T1140"
+        },
+        "Deploy Container": {
+            "tid": "T1610"
+        },
+        "Direct Volume Access": {
+            "tid": "T1006"
+        },
+        "Domain Policy Modification": {
+            "tid": "T1484",
+            "subtechniques": {
+                "Group Policy Modification": {
+                    "stid": "T1484.001"
+                },
+                "Domain Trust Modification": {
+                    "stid": "T1484.002"
+                }
+            }
+        },
+        "Execution Guardrails": {
+            "tid": "T1480",
+            "subtechniques": {
+                "Environmental Keying": {
+                    "stid": "T1480.001"
+                }
+            }
+        },
+        "Exploitation for Defense Evasion": {
+            "tid": "T1211"
+        },
+        "File and Directory Permissions Modification": {
+            "tid": "T1222",
+            "subtechniques": {
+                "Windows File and Directory Permissions Modification": {
+                    "stid": "T1222.001"
+                },
+                "Linux and Mac File and Directory Permissions Modification": {
+                    "stid": "T1222.002"
+                }
+            }
+        },
+        "Hide Artifacts": {
+            "tid": "T1564",
+            "subtechniques": {
+                "Hidden Files and Directories": {
+                    "stid": "T1564.001"
+                },
+                "Hidden Users": {
+                    "stid": "T1564.002"
+                },
+                "Hidden Window": {
+                    "stid": "T1564.003"
+                },
+                "NTFS File Attributes": {
+                    "stid": "T1564.004"
+                },
+                "Hidden File System": {
+                    "stid": "T1564.005"
+                },
+                "Run Virtual Instance": {
+                    "stid": "T1564.006"
+                },
+                "VBA Stomping": {
+                    "stid": "T1564.007"
+                },
+                "Email Hiding Rules": {
+                    "stid": "T1564.008"
+                },
+                "Resource Forking": {
+                    "stid": "T1564.009"
+                },
+                "Process Argument Spoofing": {
+                    "stid": "T1564.010"
+                },
+                "Ignore Process Interrupts": {
+                    "stid": "T1564.011"
+                }
+            }
+        },
+        "Hijack Execution Flow": {
+            "tid": "T1574",
+            "subtechniques": {
+                "DLL Search Order Hijacking": {
+                    "stid": "T1574.001"
+                },
+                "DLL Side-Loading": {
+                    "stid": "T1574.002"
+                },
+                "Dylib Hijacking": {
+                    "stid": "T1574.004"
+                },
+                "Executable Installer File Permissions Weakness": {
+                    "stid": "T1574.005"
+                },
+                "Dynamic Linker Hijacking": {
+                    "stid": "T1574.006"
+                },
+                "Path Interception by PATH Environment Variable": {
+                    "stid": "T1574.007"
+                },
+                "Path Interception by Search Order Hijacking": {
+                    "stid": "T1574.008"
+                },
+                "Path Interception by Unquoted Path": {
+                    "stid": "T1574.009"
+                },
+                "Services File Permissions Weakness": {
+                    "stid": "T1574.010"
+                },
+                "Services Registry Permissions Weakness": {
+                    "stid": "T1574.011"
+                },
+                "COR_PROFILER": {
+                    "stid": "T1574.012"
+                },
+                "KernelCallbackTable": {
+                    "stid": "T1574.013"
+                }
+            }
+        },
+        "Impair Defenses": {
+            "tid": "T1562",
+            "subtechniques": {
+                "Disable or Modify Tools": {
+                    "stid": "T1562.001"
+                },
+                "Disable Windows Event Logging": {
+                    "stid": "T1562.002"
+                },
+                "Impair Command History Logging": {
+                    "stid": "T1562.003"
+                },
+                "Disable or Modify System Firewall": {
+                    "stid": "T1562.004"
+                },
+                "Indicator Blocking": {
+                    "stid": "T1562.006"
+                },
+                "Disable or Modify Cloud Firewall": {
+                    "stid": "T1562.007"
+                },
+                "Disable or Modify Cloud Logs": {
+                    "stid": "T1562.008"
+                },
+                "Safe Mode Boot": {
+                    "stid": "T1562.009"
+                },
+                "Downgrade Attack": {
+                    "stid": "T1562.010"
+                },
+                "Spoof Security Alerting": {
+                    "stid": "T1562.011"
+                },
+                "Disable or Modify Linux Audit System": {
+                    "stid": "T1562.012"
+                }
+            }
+        },
+        "Impersonation": {
+            "tid": "T1656"
+        },
+        "Indicator Removal": {
+            "tid": "T1070",
+            "subtechniques": {
+                "Clear Windows Event Logs": {
+                    "stid": "T1070.001"
+                },
+                "Clear Linux or Mac System Logs": {
+                    "stid": "T1070.002"
+                },
+                "Clear Command History": {
+                    "stid": "T1070.003"
+                },
+                "File Deletion": {
+                    "stid": "T1070.004"
+                },
+                "Network Share Connection Removal": {
+                    "stid": "T1070.005"
+                },
+                "Timestomp": {
+                    "stid": "T1070.006"
+                },
+                "Clear Network Connection History and Configurations": {
+                    "stid": "T1070.007"
+                },
+                "Clear Mailbox Data": {
+                    "stid": "T1070.008"
+                },
+                "Clear Persistence": {
+                    "stid": "T1070.009"
+                }
+            }
+        },
+        "Indirect Command Execution": {
+            "tid": "T1202"
+        },
+        "Masquerading": {
+            "tid": "T1036",
+            "subtechniques": {
+                "Invalid Code Signature": {
+                    "stid": "T1036.001"
+                },
+                "Right-to-Left Override": {
+                    "stid": "T1036.002"
+                },
+                "Rename System Utilities": {
+                    "stid": "T1036.003"
+                },
+                "Masquerade Task or Service": {
+                    "stid": "T1036.004"
+                },
+                "Match Legitimate Name or Location": {
+                    "stid": "T1036.005"
+                },
+                "Space after Filename": {
+                    "stid": "T1036.006"
+                },
+                "Double File Extension": {
+                    "stid": "T1036.007"
+                },
+                "Masquerade File Type": {
+                    "stid": "T1036.008"
+                },
+                "Break Process Trees": {
+                    "stid": "T1036.009"
+                }
+            }
+        },
+        "Modify Authentication Process": {
+            "tid": "T1556",
+            "subtechniques": {
+                "Domain Controller Authentication": {
+                    "stid": "T1556.001"
+                },
+                "Password Filter DLL": {
+                    "stid": "T1556.002"
+                },
+                "Pluggable Authentication Modules": {
+                    "stid": "T1556.003"
+                },
+                "Network Device Authentication": {
+                    "stid": "T1556.004"
+                },
+                "Reversible Encryption": {
+                    "stid": "T1556.005"
+                },
+                "Multi-Factor Authentication": {
+                    "stid": "T1556.006"
+                },
+                "Hybrid Identity": {
+                    "stid": "T1556.007"
+                },
+                "Network Provider DLL": {
+                    "stid": "T1556.008"
+                }
+            }
+        },
+        "Modify Cloud Compute Infrastructure": {
+            "tid": "T1578",
+            "subtechniques": {
+                "Create Snapshot": {
+                    "stid": "T1578.001"
+                },
+                "Create Cloud Instance": {
+                    "stid": "T1578.002"
+                },
+                "Delete Cloud Instance": {
+                    "stid": "T1578.003"
+                },
+                "Revert Cloud Instance": {
+                    "stid": "T1578.004"
+                },
+                "Modify Cloud Compute Configurations": {
+                    "stid": "T1578.005"
+                }
+            }
+        },
+        "Modify Registry": {
+            "tid": "T1112"
+        },
+        "Modify System Image": {
+            "tid": "T1601",
+            "subtechniques": {
+                "Patch System Image": {
+                    "stid": "T1601.001"
+                },
+                "Downgrade System Image": {
+                    "stid": "T1601.002"
+                }
+            }
+        },
+        "Network Boundary Bridging": {
+            "tid": "T1599",
+            "subtechniques": {
+                "Network Address Translation Traversal": {
+                    "stid": "T1599.001"
+                }
+            }
+        },
+        "Obfuscated Files or Information": {
+            "tid": "T1027",
+            "subtechniques": {
+                "Binary Padding": {
+                    "stid": "T1027.001"
+                },
+                "Software Packing": {
+                    "stid": "T1027.002"
+                },
+                "Steganography": {
+                    "stid": "T1027.003"
+                },
+                "Compile After Delivery": {
+                    "stid": "T1027.004"
+                },
+                "Indicator Removal from Tools": {
+                    "stid": "T1027.005"
+                },
+                "HTML Smuggling": {
+                    "stid": "T1027.006"
+                },
+                "Dynamic API Resolution": {
+                    "stid": "T1027.007"
+                },
+                "Stripped Payloads": {
+                    "stid": "T1027.008"
+                },
+                "Embedded Payloads": {
+                    "stid": "T1027.009"
+                },
+                "Command Obfuscation": {
+                    "stid": "T1027.010"
+                },
+                "Fileless Storage": {
+                    "stid": "T1027.011"
+                },
+                "LNK Icon Smuggling": {
+                    "stid": "T1027.012"
+                }
+            }
+        },
+        "Plist File Modification": {
+            "tid": "T1647"
+        },
+        "Pre-OS Boot": {
+            "tid": "T1542",
+            "subtechniques": {
+                "System Firmware": {
+                    "stid": "T1542.001"
+                },
+                "Component Firmware": {
+                    "stid": "T1542.002"
+                },
+                "Bootkit": {
+                    "stid": "T1542.003"
+                },
+                "ROMMONkit": {
+                    "stid": "T1542.004"
+                },
+                "TFTP Boot": {
+                    "stid": "T1542.005"
+                }
+            }
+        },
+        "Process Injection": {
+            "tid": "T1055",
+            "subtechniques": {
+                "Dynamic-link Library Injection": {
+                    "stid": "T1055.001"
+                },
+                "Portable Executable Injection": {
+                    "stid": "T1055.002"
+                },
+                "Thread Execution Hijacking": {
+                    "stid": "T1055.003"
+                },
+                "Asynchronous Procedure Call": {
+                    "stid": "T1055.004"
+                },
+                "Thread Local Storage": {
+                    "stid": "T1055.005"
+                },
+                "Ptrace System Calls": {
+                    "stid": "T1055.008"
+                },
+                "Proc Memory": {
+                    "stid": "T1055.009"
+                },
+                "Extra Window Memory Injection": {
+                    "stid": "T1055.011"
+                },
+                "Process Hollowing": {
+                    "stid": "T1055.012"
+                },
+                "Process Doppelg\u00e4nging": {
+                    "stid": "T1055.013"
+                },
+                "VDSO Hijacking": {
+                    "stid": "T1055.014"
+                },
+                "ListPlanting": {
+                    "stid": "T1055.015"
+                }
+            }
+        },
+        "Reflective Code Loading": {
+            "tid": "T1620"
+        },
+        "Rogue Domain Controller": {
+            "tid": "T1207"
+        },
+        "Rootkit": {
+            "tid": "T1014"
+        },
+        "Subvert Trust Controls": {
+            "tid": "T1553",
+            "subtechniques": {
+                "Gatekeeper Bypass": {
+                    "stid": "T1553.001"
+                },
+                "Code Signing": {
+                    "stid": "T1553.002"
+                },
+                "SIP and Trust Provider Hijacking": {
+                    "stid": "T1553.003"
+                },
+                "Install Root Certificate": {
+                    "stid": "T1553.004"
+                },
+                "Mark-of-the-Web Bypass": {
+                    "stid": "T1553.005"
+                },
+                "Code Signing Policy Modification": {
+                    "stid": "T1553.006"
+                }
+            }
+        },
+        "System Binary Proxy Execution": {
+            "tid": "T1218",
+            "subtechniques": {
+                "Compiled HTML File": {
+                    "stid": "T1218.001"
+                },
+                "Control Panel": {
+                    "stid": "T1218.002"
+                },
+                "CMSTP": {
+                    "stid": "T1218.003"
+                },
+                "InstallUtil": {
+                    "stid": "T1218.004"
+                },
+                "Mshta": {
+                    "stid": "T1218.005"
+                },
+                "Msiexec": {
+                    "stid": "T1218.007"
+                },
+                "Odbcconf": {
+                    "stid": "T1218.008"
+                },
+                "Regsvcs/Regasm": {
+                    "stid": "T1218.009"
+                },
+                "Regsvr32": {
+                    "stid": "T1218.010"
+                },
+                "Rundll32": {
+                    "stid": "T1218.011"
+                },
+                "Verclsid": {
+                    "stid": "T1218.012"
+                },
+                "Mavinject": {
+                    "stid": "T1218.013"
+                },
+                "MMC": {
+                    "stid": "T1218.014"
+                }
+            }
+        },
+        "System Script Proxy Execution": {
+            "tid": "T1216",
+            "subtechniques": {
+                "PubPrn": {
+                    "stid": "T1216.001"
+                }
+            }
+        },
+        "Template Injection": {
+            "tid": "T1221"
+        },
+        "Traffic Signaling": {
+            "tid": "T1205",
+            "subtechniques": {
+                "Port Knocking": {
+                    "stid": "T1205.001"
+                },
+                "Socket Filters": {
+                    "stid": "T1205.002"
+                }
+            }
+        },
+        "Trusted Developer Utilities Proxy Execution": {
+            "tid": "T1127",
+            "subtechniques": {
+                "MSBuild": {
+                    "stid": "T1127.001"
+                }
+            }
+        },
+        "Unused/Unsupported Cloud Regions": {
+            "tid": "T1535"
+        },
+        "Use Alternate Authentication Material": {
+            "tid": "T1550",
+            "subtechniques": {
+                "Application Access Token": {
+                    "stid": "T1550.001"
+                },
+                "Pass the Hash": {
+                    "stid": "T1550.002"
+                },
+                "Pass the Ticket": {
+                    "stid": "T1550.003"
+                },
+                "Web Session Cookie": {
+                    "stid": "T1550.004"
+                }
+            }
+        },
+        "Valid Accounts": {
+            "tid": "T1078",
+            "subtechniques": {
+                "Default Accounts": {
+                    "stid": "T1078.001"
+                },
+                "Domain Accounts": {
+                    "stid": "T1078.002"
+                },
+                "Local Accounts": {
+                    "stid": "T1078.003"
+                },
+                "Cloud Accounts": {
+                    "stid": "T1078.004"
+                }
+            }
+        },
+        "Virtualization/Sandbox Evasion": {
+            "tid": "T1497",
+            "subtechniques": {
+                "System Checks": {
+                    "stid": "T1497.001"
+                },
+                "User Activity Based Checks": {
+                    "stid": "T1497.002"
+                },
+                "Time Based Evasion": {
+                    "stid": "T1497.003"
+                }
+            }
+        },
+        "Weaken Encryption": {
+            "tid": "T1600",
+            "subtechniques": {
+                "Reduce Key Space": {
+                    "stid": "T1600.001"
+                },
+                "Disable Crypto Hardware": {
+                    "stid": "T1600.002"
+                }
+            }
+        },
+        "XSL Script Processing": {
+            "tid": "T1220"
+        },
+        "count": 43
+    },
+    "Credential Access": {
+        "tactid": "TA0006",
+        "Adversary-in-the-Middle": {
+            "tid": "T1557",
+            "subtechniques": {
+                "LLMNR/NBT-NS Poisoning and SMB Relay": {
+                    "stid": "T1557.001"
+                },
+                "ARP Cache Poisoning": {
+                    "stid": "T1557.002"
+                },
+                "DHCP Spoofing": {
+                    "stid": "T1557.003"
+                }
+            }
+        },
+        "Brute Force": {
+            "tid": "T1110",
+            "subtechniques": {
+                "Password Guessing": {
+                    "stid": "T1110.001"
+                },
+                "Password Cracking": {
+                    "stid": "T1110.002"
+                },
+                "Password Spraying": {
+                    "stid": "T1110.003"
+                },
+                "Credential Stuffing": {
+                    "stid": "T1110.004"
+                }
+            }
+        },
+        "Credentials from Password Stores": {
+            "tid": "T1555",
+            "subtechniques": {
+                "Keychain": {
+                    "stid": "T1555.001"
+                },
+                "Securityd Memory": {
+                    "stid": "T1555.002"
+                },
+                "Credentials from Web Browsers": {
+                    "stid": "T1555.003"
+                },
+                "Windows Credential Manager": {
+                    "stid": "T1555.004"
+                },
+                "Password Managers": {
+                    "stid": "T1555.005"
+                },
+                "Cloud Secrets Management Stores": {
+                    "stid": "T1555.006"
+                }
+            }
+        },
+        "Exploitation for Credential Access": {
+            "tid": "T1212"
+        },
+        "Forced Authentication": {
+            "tid": "T1187"
+        },
+        "Forge Web Credentials": {
+            "tid": "T1606",
+            "subtechniques": {
+                "Web Cookies": {
+                    "stid": "T1606.001"
+                },
+                "SAML Tokens": {
+                    "stid": "T1606.002"
+                }
+            }
+        },
+        "Input Capture": {
+            "tid": "T1056",
+            "subtechniques": {
+                "Keylogging": {
+                    "stid": "T1056.001"
+                },
+                "GUI Input Capture": {
+                    "stid": "T1056.002"
+                },
+                "Web Portal Capture": {
+                    "stid": "T1056.003"
+                },
+                "Credential API Hooking": {
+                    "stid": "T1056.004"
+                }
+            }
+        },
+        "Modify Authentication Process": {
+            "tid": "T1556",
+            "subtechniques": {
+                "Domain Controller Authentication": {
+                    "stid": "T1556.001"
+                },
+                "Password Filter DLL": {
+                    "stid": "T1556.002"
+                },
+                "Pluggable Authentication Modules": {
+                    "stid": "T1556.003"
+                },
+                "Network Device Authentication": {
+                    "stid": "T1556.004"
+                },
+                "Reversible Encryption": {
+                    "stid": "T1556.005"
+                },
+                "Multi-Factor Authentication": {
+                    "stid": "T1556.006"
+                },
+                "Hybrid Identity": {
+                    "stid": "T1556.007"
+                },
+                "Network Provider DLL": {
+                    "stid": "T1556.008"
+                }
+            }
+        },
+        "Multi-Factor Authentication Interception": {
+            "tid": "T1111"
+        },
+        "Multi-Factor Authentication Request Generation": {
+            "tid": "T1621"
+        },
+        "Network Sniffing": {
+            "tid": "T1040"
+        },
+        "OS Credential Dumping": {
+            "tid": "T1003",
+            "subtechniques": {
+                "LSASS Memory": {
+                    "stid": "T1003.001"
+                },
+                "Security Account Manager": {
+                    "stid": "T1003.002"
+                },
+                "NTDS": {
+                    "stid": "T1003.003"
+                },
+                "LSA Secrets": {
+                    "stid": "T1003.004"
+                },
+                "Cached Domain Credentials": {
+                    "stid": "T1003.005"
+                },
+                "DCSync": {
+                    "stid": "T1003.006"
+                },
+                "Proc Filesystem": {
+                    "stid": "T1003.007"
+                },
+                "/etc/passwd and /etc/shadow": {
+                    "stid": "T1003.008"
+                }
+            }
+        },
+        "Steal Application Access Token": {
+            "tid": "T1528"
+        },
+        "Steal or Forge Authentication Certificates": {
+            "tid": "T1649"
+        },
+        "Steal or Forge Kerberos Tickets": {
+            "tid": "T1558",
+            "subtechniques": {
+                "Golden Ticket": {
+                    "stid": "T1558.001"
+                },
+                "Silver Ticket": {
+                    "stid": "T1558.002"
+                },
+                "Kerberoasting": {
+                    "stid": "T1558.003"
+                },
+                "AS-REP Roasting": {
+                    "stid": "T1558.004"
+                }
+            }
+        },
+        "Steal Web Session Cookie": {
+            "tid": "T1539"
+        },
+        "Unsecured Credentials": {
+            "tid": "T1552",
+            "subtechniques": {
+                "Credentials In Files": {
+                    "stid": "T1552.001"
+                },
+                "Credentials in Registry": {
+                    "stid": "T1552.002"
+                },
+                "Bash History": {
+                    "stid": "T1552.003"
+                },
+                "Private Keys": {
+                    "stid": "T1552.004"
+                },
+                "Cloud Instance Metadata API": {
+                    "stid": "T1552.005"
+                },
+                "Group Policy Preferences": {
+                    "stid": "T1552.006"
+                },
+                "Container API": {
+                    "stid": "T1552.007"
+                },
+                "Chat Messages": {
+                    "stid": "T1552.008"
+                }
+            }
+        },
+        "count": 17
+    },
+    "Discovery": {
+        "tactid": "TA0007",
+        "Account Discovery": {
+            "tid": "T1087",
+            "subtechniques": {
+                "Local Account": {
+                    "stid": "T1087.001"
+                },
+                "Domain Account": {
+                    "stid": "T1087.002"
+                },
+                "Email Account": {
+                    "stid": "T1087.003"
+                },
+                "Cloud Account": {
+                    "stid": "T1087.004"
+                }
+            }
+        },
+        "Application Window Discovery": {
+            "tid": "T1010"
+        },
+        "Browser Information Discovery": {
+            "tid": "T1217"
+        },
+        "Cloud Infrastructure Discovery": {
+            "tid": "T1580"
+        },
+        "Cloud Service Dashboard": {
+            "tid": "T1538"
+        },
+        "Cloud Service Discovery": {
+            "tid": "T1526"
+        },
+        "Cloud Storage Object Discovery": {
+            "tid": "T1619"
+        },
+        "Container and Resource Discovery": {
+            "tid": "T1613"
+        },
+        "Debugger Evasion": {
+            "tid": "T1622"
+        },
+        "Device Driver Discovery": {
+            "tid": "T1652"
+        },
+        "Domain Trust Discovery": {
+            "tid": "T1482"
+        },
+        "File and Directory Discovery": {
+            "tid": "T1083"
+        },
+        "Group Policy Discovery": {
+            "tid": "T1615"
+        },
+        "Log Enumeration": {
+            "tid": "T1654"
+        },
+        "Network Service Discovery": {
+            "tid": "T1046"
+        },
+        "Network Share Discovery": {
+            "tid": "T1135"
+        },
+        "Network Sniffing": {
+            "tid": "T1040"
+        },
+        "Password Policy Discovery": {
+            "tid": "T1201"
+        },
+        "Peripheral Device Discovery": {
+            "tid": "T1120"
+        },
+        "Permission Groups Discovery": {
+            "tid": "T1069",
+            "subtechniques": {
+                "Local Groups": {
+                    "stid": "T1069.001"
+                },
+                "Domain Groups": {
+                    "stid": "T1069.002"
+                },
+                "Cloud Groups": {
+                    "stid": "T1069.003"
+                }
+            }
+        },
+        "Process Discovery": {
+            "tid": "T1057"
+        },
+        "Query Registry": {
+            "tid": "T1012"
+        },
+        "Remote System Discovery": {
+            "tid": "T1018"
+        },
+        "Software Discovery": {
+            "tid": "T1518",
+            "subtechniques": {
+                "Security Software Discovery": {
+                    "stid": "T1518.001"
+                }
+            }
+        },
+        "System Information Discovery": {
+            "tid": "T1082"
+        },
+        "System Location Discovery": {
+            "tid": "T1614",
+            "subtechniques": {
+                "System Language Discovery": {
+                    "stid": "T1614.001"
+                }
+            }
+        },
+        "System Network Configuration Discovery": {
+            "tid": "T1016",
+            "subtechniques": {
+                "Internet Connection Discovery": {
+                    "stid": "T1016.001"
+                },
+                "Wi-Fi Discovery": {
+                    "stid": "T1016.002"
+                }
+            }
+        },
+        "System Network Connections Discovery": {
+            "tid": "T1049"
+        },
+        "System Owner/User Discovery": {
+            "tid": "T1033"
+        },
+        "System Service Discovery": {
+            "tid": "T1007"
+        },
+        "System Time Discovery": {
+            "tid": "T1124"
+        },
+        "Virtualization/Sandbox Evasion": {
+            "tid": "T1497",
+            "subtechniques": {
+                "System Checks": {
+                    "stid": "T1497.001"
+                },
+                "User Activity Based Checks": {
+                    "stid": "T1497.002"
+                },
+                "Time Based Evasion": {
+                    "stid": "T1497.003"
+                }
+            }
+        },
+        "count": 32
+    },
+    "Lateral Movement": {
+        "tactid": "TA0008",
+        "Exploitation of Remote Services": {
+            "tid": "T1210"
+        },
+        "Internal Spearphishing": {
+            "tid": "T1534"
+        },
+        "Lateral Tool Transfer": {
+            "tid": "T1570"
+        },
+        "Remote Service Session Hijacking": {
+            "tid": "T1563",
+            "subtechniques": {
+                "SSH Hijacking": {
+                    "stid": "T1563.001"
+                },
+                "RDP Hijacking": {
+                    "stid": "T1563.002"
+                }
+            }
+        },
+        "Remote Services": {
+            "tid": "T1021",
+            "subtechniques": {
+                "Remote Desktop Protocol": {
+                    "stid": "T1021.001"
+                },
+                "SMB/Windows Admin Shares": {
+                    "stid": "T1021.002"
+                },
+                "Distributed Component Object Model": {
+                    "stid": "T1021.003"
+                },
+                "SSH": {
+                    "stid": "T1021.004"
+                },
+                "VNC": {
+                    "stid": "T1021.005"
+                },
+                "Windows Remote Management": {
+                    "stid": "T1021.006"
+                },
+                "Cloud Services": {
+                    "stid": "T1021.007"
+                },
+                "Direct Cloud VM Connections": {
+                    "stid": "T1021.008"
+                }
+            }
+        },
+        "Replication Through Removable Media": {
+            "tid": "T1091"
+        },
+        "Software Deployment Tools": {
+            "tid": "T1072"
+        },
+        "Taint Shared Content": {
+            "tid": "T1080"
+        },
+        "Use Alternate Authentication Material": {
+            "tid": "T1550",
+            "subtechniques": {
+                "Application Access Token": {
+                    "stid": "T1550.001"
+                },
+                "Pass the Hash": {
+                    "stid": "T1550.002"
+                },
+                "Pass the Ticket": {
+                    "stid": "T1550.003"
+                },
+                "Web Session Cookie": {
+                    "stid": "T1550.004"
+                }
+            }
+        },
+        "count": 9
+    },
+    "Collection": {
+        "tactid": "TA0009",
+        "Adversary-in-the-Middle": {
+            "tid": "T1557",
+            "subtechniques": {
+                "LLMNR/NBT-NS Poisoning and SMB Relay": {
+                    "stid": "T1557.001"
+                },
+                "ARP Cache Poisoning": {
+                    "stid": "T1557.002"
+                },
+                "DHCP Spoofing": {
+                    "stid": "T1557.003"
+                }
+            }
+        },
+        "Archive Collected Data": {
+            "tid": "T1560",
+            "subtechniques": {
+                "Archive via Utility": {
+                    "stid": "T1560.001"
+                },
+                "Archive via Library": {
+                    "stid": "T1560.002"
+                },
+                "Archive via Custom Method": {
+                    "stid": "T1560.003"
+                }
+            }
+        },
+        "Audio Capture": {
+            "tid": "T1123"
+        },
+        "Automated Collection": {
+            "tid": "T1119"
+        },
+        "Browser Session Hijacking": {
+            "tid": "T1185"
+        },
+        "Clipboard Data": {
+            "tid": "T1115"
+        },
+        "Data from Cloud Storage": {
+            "tid": "T1530"
+        },
+        "Data from Configuration Repository": {
+            "tid": "T1602",
+            "subtechniques": {
+                "SNMP (MIB Dump)": {
+                    "stid": "T1602.001"
+                },
+                "Network Device Configuration Dump": {
+                    "stid": "T1602.002"
+                }
+            }
+        },
+        "Data from Information Repositories": {
+            "tid": "T1213",
+            "subtechniques": {
+                "Confluence": {
+                    "stid": "T1213.001"
+                },
+                "Sharepoint": {
+                    "stid": "T1213.002"
+                },
+                "Code Repositories": {
+                    "stid": "T1213.003"
+                }
+            }
+        },
+        "Data from Local System": {
+            "tid": "T1005"
+        },
+        "Data from Network Shared Drive": {
+            "tid": "T1039"
+        },
+        "Data from Removable Media": {
+            "tid": "T1025"
+        },
+        "Data Staged": {
+            "tid": "T1074",
+            "subtechniques": {
+                "Local Data Staging": {
+                    "stid": "T1074.001"
+                },
+                "Remote Data Staging": {
+                    "stid": "T1074.002"
+                }
+            }
+        },
+        "Email Collection": {
+            "tid": "T1114",
+            "subtechniques": {
+                "Local Email Collection": {
+                    "stid": "T1114.001"
+                },
+                "Remote Email Collection": {
+                    "stid": "T1114.002"
+                },
+                "Email Forwarding Rule": {
+                    "stid": "T1114.003"
+                }
+            }
+        },
+        "Input Capture": {
+            "tid": "T1056",
+            "subtechniques": {
+                "Keylogging": {
+                    "stid": "T1056.001"
+                },
+                "GUI Input Capture": {
+                    "stid": "T1056.002"
+                },
+                "Web Portal Capture": {
+                    "stid": "T1056.003"
+                },
+                "Credential API Hooking": {
+                    "stid": "T1056.004"
+                }
+            }
+        },
+        "Screen Capture": {
+            "tid": "T1113"
+        },
+        "Video Capture": {
+            "tid": "T1125"
+        },
+        "count": 17
+    },
+    "Command and Control": {
+        "tactid": "TA0011",
+        "Application Layer Protocol": {
+            "tid": "T1071",
+            "subtechniques": {
+                "Web Protocols": {
+                    "stid": "T1071.001"
+                },
+                "File Transfer Protocols": {
+                    "stid": "T1071.002"
+                },
+                "Mail Protocols": {
+                    "stid": "T1071.003"
+                },
+                "DNS": {
+                    "stid": "T1071.004"
+                }
+            }
+        },
+        "Communication Through Removable Media": {
+            "tid": "T1092"
+        },
+        "Content Injection": {
+            "tid": "T1659"
+        },
+        "Data Encoding": {
+            "tid": "T1132",
+            "subtechniques": {
+                "Standard Encoding": {
+                    "stid": "T1132.001"
+                },
+                "Non-Standard Encoding": {
+                    "stid": "T1132.002"
+                }
+            }
+        },
+        "Data Obfuscation": {
+            "tid": "T1001",
+            "subtechniques": {
+                "Junk Data": {
+                    "stid": "T1001.001"
+                },
+                "Steganography": {
+                    "stid": "T1001.002"
+                },
+                "Protocol Impersonation": {
+                    "stid": "T1001.003"
+                }
+            }
+        },
+        "Dynamic Resolution": {
+            "tid": "T1568",
+            "subtechniques": {
+                "Fast Flux DNS": {
+                    "stid": "T1568.001"
+                },
+                "Domain Generation Algorithms": {
+                    "stid": "T1568.002"
+                },
+                "DNS Calculation": {
+                    "stid": "T1568.003"
+                }
+            }
+        },
+        "Encrypted Channel": {
+            "tid": "T1573",
+            "subtechniques": {
+                "Symmetric Cryptography": {
+                    "stid": "T1573.001"
+                },
+                "Asymmetric Cryptography": {
+                    "stid": "T1573.002"
+                }
+            }
+        },
+        "Fallback Channels": {
+            "tid": "T1008"
+        },
+        "Ingress Tool Transfer": {
+            "tid": "T1105"
+        },
+        "Multi-Stage Channels": {
+            "tid": "T1104"
+        },
+        "Non-Application Layer Protocol": {
+            "tid": "T1095"
+        },
+        "Non-Standard Port": {
+            "tid": "T1571"
+        },
+        "Protocol Tunneling": {
+            "tid": "T1572"
+        },
+        "Proxy": {
+            "tid": "T1090",
+            "subtechniques": {
+                "Internal Proxy": {
+                    "stid": "T1090.001"
+                },
+                "External Proxy": {
+                    "stid": "T1090.002"
+                },
+                "Multi-hop Proxy": {
+                    "stid": "T1090.003"
+                },
+                "Domain Fronting": {
+                    "stid": "T1090.004"
+                }
+            }
+        },
+        "Remote Access Software": {
+            "tid": "T1219"
+        },
+        "Traffic Signaling": {
+            "tid": "T1205",
+            "subtechniques": {
+                "Port Knocking": {
+                    "stid": "T1205.001"
+                },
+                "Socket Filters": {
+                    "stid": "T1205.002"
+                }
+            }
+        },
+        "Web Service": {
+            "tid": "T1102",
+            "subtechniques": {
+                "Dead Drop Resolver": {
+                    "stid": "T1102.001"
+                },
+                "Bidirectional Communication": {
+                    "stid": "T1102.002"
+                },
+                "One-Way Communication": {
+                    "stid": "T1102.003"
+                }
+            }
+        },
+        "count": 17
+    },
+    "Exfiltration": {
+        "tactid": "TA0010",
+        "Automated Exfiltration": {
+            "tid": "T1020",
+            "subtechniques": {
+                "Traffic Duplication": {
+                    "stid": "T1020.001"
+                }
+            }
+        },
+        "Data Transfer Size Limits": {
+            "tid": "T1030"
+        },
+        "Exfiltration Over Alternative Protocol": {
+            "tid": "T1048",
+            "subtechniques": {
+                "Exfiltration Over Symmetric Encrypted Non-C2 Protocol": {
+                    "stid": "T1048.001"
+                },
+                "Exfiltration Over Asymmetric Encrypted Non-C2 Protocol": {
+                    "stid": "T1048.002"
+                },
+                "Exfiltration Over Unencrypted Non-C2 Protocol": {
+                    "stid": "T1048.003"
+                }
+            }
+        },
+        "Exfiltration Over C2 Channel": {
+            "tid": "T1041"
+        },
+        "Exfiltration Over Other Network Medium": {
+            "tid": "T1011",
+            "subtechniques": {
+                "Exfiltration Over Bluetooth": {
+                    "stid": "T1011.001"
+                }
+            }
+        },
+        "Exfiltration Over Physical Medium": {
+            "tid": "T1052",
+            "subtechniques": {
+                "Exfiltration over USB": {
+                    "stid": "T1052.001"
+                }
+            }
+        },
+        "Exfiltration Over Web Service": {
+            "tid": "T1567",
+            "subtechniques": {
+                "Exfiltration to Code Repository": {
+                    "stid": "T1567.001"
+                },
+                "Exfiltration to Cloud Storage": {
+                    "stid": "T1567.002"
+                },
+                "Exfiltration to Text Storage Sites": {
+                    "stid": "T1567.003"
+                },
+                "Exfiltration Over Webhook": {
+                    "stid": "T1567.004"
+                }
+            }
+        },
+        "Scheduled Transfer": {
+            "tid": "T1029"
+        },
+        "Transfer Data to Cloud Account": {
+            "tid": "T1537"
+        },
+        "count": 9
+    },
+    "Impact": {
+        "tactid": "TA0040",
+        "Account Access Removal": {
+            "tid": "T1531"
+        },
+        "Data Destruction": {
+            "tid": "T1485"
+        },
+        "Data Encrypted for Impact": {
+            "tid": "T1486"
+        },
+        "Data Manipulation": {
+            "tid": "T1565",
+            "subtechniques": {
+                "Stored Data Manipulation": {
+                    "stid": "T1565.001"
+                },
+                "Transmitted Data Manipulation": {
+                    "stid": "T1565.002"
+                },
+                "Runtime Data Manipulation": {
+                    "stid": "T1565.003"
+                }
+            }
+        },
+        "Defacement": {
+            "tid": "T1491",
+            "subtechniques": {
+                "Internal Defacement": {
+                    "stid": "T1491.001"
+                },
+                "External Defacement": {
+                    "stid": "T1491.002"
+                }
+            }
+        },
+        "Disk Wipe": {
+            "tid": "T1561",
+            "subtechniques": {
+                "Disk Content Wipe": {
+                    "stid": "T1561.001"
+                },
+                "Disk Structure Wipe": {
+                    "stid": "T1561.002"
+                }
+            }
+        },
+        "Endpoint Denial of Service": {
+            "tid": "T1499",
+            "subtechniques": {
+                "OS Exhaustion Flood": {
+                    "stid": "T1499.001"
+                },
+                "Service Exhaustion Flood": {
+                    "stid": "T1499.002"
+                },
+                "Application Exhaustion Flood": {
+                    "stid": "T1499.003"
+                },
+                "Application or System Exploitation": {
+                    "stid": "T1499.004"
+                }
+            }
+        },
+        "Financial Theft": {
+            "tid": "T1657"
+        },
+        "Firmware Corruption": {
+            "tid": "T1495"
+        },
+        "Inhibit System Recovery": {
+            "tid": "T1490"
+        },
+        "Network Denial of Service": {
+            "tid": "T1498",
+            "subtechniques": {
+                "Direct Network Flood": {
+                    "stid": "T1498.001"
+                },
+                "Reflection Amplification": {
+                    "stid": "T1498.002"
+                }
+            }
+        },
+        "Resource Hijacking": {
+            "tid": "T1496"
+        },
+        "Service Stop": {
+            "tid": "T1489"
+        },
+        "System Shutdown/Reboot": {
+            "tid": "T1529"
+        },
+        "count": 14
+    },
+    "count": 14
+}

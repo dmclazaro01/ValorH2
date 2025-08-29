@@ -1,0 +1,61 @@
+{
+    "Reconnaissance": {
+        "tactid": "TA0043"
+    },
+    "Resource Development": {
+        "tactid": "TA0042"
+    },
+    "Initial Access": {
+        "tactid": "TA0001"
+    },
+    "Execution": {
+        "tactid": "TA0002"
+    },
+    "Persistence": {
+        "tactid": "TA0003"
+    },
+    "Privilege Escalation": {
+        "tactid": "TA0004"
+    },
+    "Defense Evasion": {
+        "tactid": "TA0005"
+    },
+    "Credential Access": {
+        "tactid": "TA0006"
+    },
+    "Discovery": {
+        "tactid": "TA0007"
+    },
+    "Lateral Movement": {
+        "tactid": "TA0008"
+    },
+    "Collection": {
+        "tactid": "TA0009"
+    },
+    "Command and Control": {
+        "tactid": "TA0011"
+    },
+    "Exfiltration": {
+        "tactid": "TA0010"
+    },
+    "Impact": {
+        "tactid": "TA0040"
+    },
+    "tactics": [
+        "Reconnaissance",
+        "Resource Development",
+        "Initial Access",
+        "Execution",
+        "Persistence",
+        "Privilege Escalation",
+        "Defense Evasion",
+        "Credential Access",
+        "Discovery",
+        "Lateral Movement",
+        "Collection",
+        "Command and Control",
+        "Exfiltration",
+        "Impact"
+    ],
+    "count": 14
+}

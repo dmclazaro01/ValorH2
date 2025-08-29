@@ -1,0 +1,7 @@
+bs4
+requests
+re
+json
+confluent-kafka
+selenium
+bs4
