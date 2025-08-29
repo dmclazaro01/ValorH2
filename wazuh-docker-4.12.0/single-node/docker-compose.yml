@@ -3,7 +3,7 @@ version: '3.7'
 
 services:
   wazuh.manager:
-    image: wazuh_manager_valorh2:latest 
+    image: wazuh/wazuh-manager:4.12.0
     hostname: wazuh.manager
     restart: always
     ulimits:
@@ -48,7 +48,7 @@ services:
       - valorh2_network
 
   wazuh.indexer:
-    image: wazuh_indexer_valorh2:latest
+    image: wazuh/wazuh-indexer:4.12.0
     hostname: wazuh.indexer
     restart: always
     ports:
