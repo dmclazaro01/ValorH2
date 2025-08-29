@@ -11,12 +11,7 @@ realizar configuraciones manuales siguiendo la guía oficial: https://documentat
 
 -Para incluir la integración de Shuffle en Wazuh, el bloque que se debe introducir en el ossec.conf es el siguiente:
 
-  <integration>
-    <name>shuffle</name>
-    <hook_url>https://shuffle-frontend/api/v1/hooks/webhook_id</hook_url>
-    <level>10</level>
-    <alert_format>json</alert_format>
-  </integration>
+![alt text](image.png)
 
 Donde webhook_id será el identificador del hook que aparecerá al importar el flujo de trabajo dentro de Shuffle. Tras ello, guardar el ossec.conf y reiniciar el cluster.
 
