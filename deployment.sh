@@ -6,17 +6,6 @@ YELLOW='\033[1;33m'
 BLUE='\033[0;34m'
 NC='\033[0m' # No Color
 
-# Configuración de API Keys
-# Leer API key desde archivo .env (recomendado)
-if [ -f ".env" ]; then
-    source .env
-    echo -e "${GREEN} Archivo .env cargado${NC}"
-else
-    echo -e "${YELLOW} Archivo .env no encontrado. Creando uno de ejemplo...${NC}"
-    echo -e "${RED} Por favor, edita el archivo .env y coloca tu API key real de Shuffle${NC}"
-    echo -e "${YELLOW}Luego vuelve a ejecutar el script${NC}"
-    exit 1
-fi
 
 # Verificar directorios
 directories=("wazuh-docker-4.12.0" "misp-docker" "iris-web" "shuffle")
@@ -27,44 +16,26 @@ for dir in "${directories[@]}"; do
     fi
 done
 
-export SHUFFLE_API_KEY
 #Obtener la direccion IP de la maquina host
 HOST_IP=$(hostname -I | awk '{print $1}')
 #Cargar imagenes de la carpeta docker_images
 #Comprobar si existe el directorio docker_images y además un tar.gz dentro de la carpeta de misp-docker 
-if [ ! -d "docker_images" ]; then
-    if [ ! -f "misp-docker/*.tar.gz" ]; then
-        echo -e "${RED} No se ha extraido el tar.gz de Google Drive${NC}"
-        #Si no está en la carpeta el docker_images_backupmisp.zip no se sigue, si no se extrae
-        if [ ! -f "docker_images_backupmisp.zip" ]; then
-            echo -e "${RED} No se encontró el archivo docker_images_backupmisp.zip${NC}"
-            exit 1
-        else
-            echo -e "${GREEN} Se encontró el archivo docker_images_backupmisp.zip${NC}"
-            #Extraer sin especificar salida
-            unzip -o docker_images_backupmisp.zip
-            #Mover el tar.gz extraído de aquí a la carpeta de misp
-            mv *.tar.gz misp-docker/
-        fi
+if ! ls misp-docker/*.tar.gz >/dev/null 2>&1; then
+    echo -e "${RED} No se ha extraido el tar.gz de Google Drive${NC}"
+    #Si no está en la carpeta el backupmisp.zip no se sigue, si no se extrae
+    if [ ! -f "backupmisp.zip" ]; then
+        echo -e "${RED} No se encontró el archivo backupmisp.zip${NC}"
+    else
+        echo -e "${GREEN} Se encontró el archivo backupmisp.zip${NC}"
+        #Extraer sin especificar salida
+        unzip -o backupmisp.zip
+        #Mover el tar.gz extraído de aquí a la carpeta de misp
+        mv *.tar.gz misp-docker/
     fi
 fi
 
 
-cd docker_images
-#Bucle para cargar cada .tar
-for img in *.tar; do
-    image_name=$(basename "$img" .tar)   # quita la extensión
-    if ! docker images --format "{{.Repository}}:{{.Tag}}" | grep -q "^${image_name}:latest$"; then
-        echo -e "${BLUE} Cargando imagen $img...${NC}"
-        docker load -i "$img"
-    else
-        echo -e "${YELLOW} Imagen $image_name ya está cargada${NC}"
-    fi
-done
-
-cd ..
 echo -e "${BLUE} Iniciando despliegue del stack...${NC}"
-
 
 # Función para verificar el estado de los contenedores
 check_containers() {
@@ -129,8 +100,10 @@ echo -e "${BLUE} Desplegando Shuffle...${NC}"
 cd shuffle
 # Crear directorios necesarios
 mkdir -p ./shuffle-apps ./shuffle-files ./shuffle-database
+chown -R 1000:1000 ./shuffle-database
 docker-compose up -d
 check_containers "Shuffle"
+docker exec -it shuffle-backend sh -c "chown -R root:root /shuffle-apps /shuffle-files"
 cd ..
 
 # 2. Wazuh
@@ -148,8 +121,6 @@ fi
 echo -e "${YELLOW}Desplegando Wazuh stack...${NC}"
 docker-compose up -d
 check_containers "Wazuh"
-
-
 cd ..
 cd ..
 
@@ -158,7 +129,7 @@ echo -e "${BLUE}🔍 Desplegando MISP...${NC}"
 cd misp-docker
 #Si no hay un .env, renombrar model.env a .env
 if [ ! -f .env ]; then
-    mv model.env .env
+    cp model.env .env
 fi
 #Poner IP de la maquina en el .env dentro de BASE_URL
 sed -i "s|BASE_URL=.*|BASE_URL=https://$HOST_IP:4433|g" .env
@@ -169,9 +140,9 @@ check_containers "MISP"
 echo -e "${BLUE}Verificando misp-modules específicamente...${NC}"
 
 # Obtener el nombre completo del contenedor
-misp_modules_container=$(docker ps -f name=misp-modules --format "{{.Names}}")
+misp_modules_container=$(docker ps -f name=misp-docker-misp-modules-1 --format "{{.Names}}")
 if [ -z "$misp_modules_container" ]; then
-    echo -e "${RED}❌ No se encontró el contenedor misp-modules${NC}"
+    echo -e "${RED} No se encontró el contenedor misp-modules${NC}"
     cd ..
     exit 1
 fi
@@ -185,7 +156,7 @@ while [ $attempt -lt $max_attempts ]; do
     attempt=$((attempt + 1))
     
     # Verificar si está corriendo
-    if [ $(docker ps -q -f name=misp-modules | wc -l) -gt 0 ]; then
+    if [ $(docker ps -q -f name=misp-docker-misp-modules-1 | wc -l) -gt 0 ]; then
         # Verificar si está healthy (usando el nombre completo del contenedor)
         health_status=$(docker inspect --format='{{.State.Health.Status}}' "$misp_modules_container" 2>/dev/null)
         
@@ -207,25 +178,25 @@ while [ $attempt -lt $max_attempts ]; do
     # Si no es el último intento, reintentar
     if [ $attempt -lt $max_attempts ]; then
         echo -e "${YELLOW}Reintentando despliegue de MISP Modules...${NC}"
-        docker-compose stop misp-modules 2>/dev/null
-        docker-compose up -d misp-modules
+        docker-compose stop misp-docker-misp-modules-1 2>/dev/null
+        docker-compose up -d 
         sleep 15
         # Actualizar el nombre del contenedor después del reinicio
-        misp_modules_container=$(docker ps -f name=misp-modules --format "{{.Names}}")
+        misp_modules_container=$(docker ps -f name=misp-docker-misp-modules-1 --format "{{.Names}}")
     fi
 done
 
 # Verificar resultado final
 if [ $attempt -eq $max_attempts ]; then
     if [ $(docker ps -q -f name=misp-modules | wc -l) -eq 0 ]; then
-        echo -e "${RED}❌ Error: No se pudo desplegar MISP Modules después de $max_attempts intentos${NC}"
+        echo -e "${RED} Error: No se pudo desplegar MISP Modules después de $max_attempts intentos${NC}"
         # Mostrar logs para diagnóstico
         echo -e "${YELLOW}Logs de misp-modules:${NC}"
         docker logs "$misp_modules_container" 2>/dev/null || echo "No se pudieron obtener logs"
     else
         health_status=$(docker inspect --format='{{.State.Health.Status}}' "$misp_modules_container" 2>/dev/null)
         if [ "$health_status" = "unhealthy" ]; then
-            echo -e "${RED}❌ MISP Modules sigue unhealthy después de $max_attempts intentos${NC}"
+            echo -e "${RED} MISP Modules sigue unhealthy después de $max_attempts intentos${NC}"
             echo -e "${YELLOW}Logs de misp-modules:${NC}"
             docker logs "$misp_modules_container" 2>/dev/null || echo "No se pudieron obtener logs"
         fi
@@ -235,7 +206,7 @@ fi
 #Obtener el nombre del tar presente de la carpeta y quitar la extension. Si no hay, indicar que falta el tar
 tar_name=$(ls -1 *.tar.gz 2>/dev/null | head -1 | sed 's/.tar.gz//')
 if [ -z "$tar_name" ]; then
-    echo -e "${YELLOW}⚠️  No se encontró ningún archivo tar para la base de datos.${NC}"
+    echo -e "${YELLOW}  No se encontró ningún archivo tar para la base de datos.${NC}"
 else
     echo -e "${GREEN}Nombre del tar encontrado: $tar_name${NC}"
     
@@ -248,24 +219,27 @@ else
             if docker exec misp-docker-misp-core-1 /var/www/MISP/tools/misp-backup/misp-restore.sh $tar_name.tar.gz; then
                 echo -e "${GREEN}✓ Restauración completada exitosamente${NC}"
             else
-                echo -e "${RED}❌ Error durante la restauración${NC}"
+                echo -e "${RED} Error durante la restauración${NC}"
             fi
         else
-            echo -e "${RED}❌ Error al copiar el archivo tar${NC}"
+            echo -e "${RED} Error al copiar el archivo tar${NC}"
         fi
     else
-        echo -e "${RED}❌ Error al crear directorios en misp-core${NC}"
+        echo -e "${RED} Error al crear directorios en misp-core${NC}"
     fi
 fi
 
 cd ..
-
 
 # 5. DFIR-IRIS
 echo -e "${BLUE}🔬 Desplegando DFIR-IRIS...${NC}"
 cd iris-web
 docker-compose up -d
 check_containers "IRIS"
+#Importar DB
+zcat backup-2025-08-29_002505.sql.gz | docker exec -i iriswebapp_db psql -U postgres -d iris_db
+#Reiniciar compose
+docker compose up -d
 cd ..
 
 #Shuffle-Wazuh
@@ -281,47 +255,8 @@ else
     if [ $(docker ps -q -f name=wazuh.manager | wc -l) -gt 0 ]; then
         
         echo -e "${YELLOW}Configurando ossec.conf con la IP del host: ${HOST_IP}${NC}"
-
-        #Función para obtener el webhook de un workflow de Shuffle
-        workflow_name="test valorh2"
-        echo -e "${YELLOW}Intentando obtener el webhook del workflow '${workflow_name}' de Shuffle...${NC}"
-
-        # Verificar si jq está instalado
-        if ! command -v jq &> /dev/null; then
-            echo -e "${RED} El comando 'jq' no está instalado. Por favor, instálalo para continuar.${NC}"
-        else
-            # Verificar si la API key está configurada
-            if [ -z "$SHUFFLE_API_KEY" ]; then
-                echo -e "${RED} La variable de entorno SHUFFLE_API_KEY no está configurada.${NC}"
-                echo -e "${YELLOW}Por favor, configúrala con tu API key de Shuffle y vuelve a ejecutar el script.${NC}"
-            else
-                # Esperar a que la API de Shuffle esté disponible
-                echo -e "${BLUE}Esperando a que la API de Shuffle esté disponible...${NC}"
-                while ! curl -s -o /dev/null "http://localhost:3001/api/v1/status"; do
-                    echo -n "."
-                    sleep 5
-                done
-                
-                echo -e "\n${GREEN} API de Shuffle está activa.${NC}"
-                # Obtener los workflows y filtrar para encontrar el webhook ID
-                webhook_id=$(curl -s -H "Authorization: Bearer ${SHUFFLE_API_KEY}" "http://localhost:3001/api/v1/workflows" | \
-                    jq -r --arg WORKFLOW_NAME "test valorh2" '.[] | select(.name == $WORKFLOW_NAME) | .triggers[] | select(.trigger_type == "WEBHOOK") | .parameters[] | select(.name == "url") | .value | split("/") | last')
-
-                if [ -z "$webhook_id" ]; then
-                    echo -e "${RED} No se pudo encontrar el webhook para el workflow '${workflow_name}'.${NC}"
-                    echo -e "${YELLOW}Verifica que el workflow existe y tiene un trigger de tipo webhook.${NC}"
-                else
-                    #Reemplazar el webhook de Shuffle en ossec.conf
-                    echo -e "${YELLOW}Configurando webhook de Shuffle: ${webhook_id}${NC}"
-                    #Buscar en ossec.conf la linea que contiene webhook_id y reemplazarla
-                    sed -i "s/webhook_id/${webhook_id}/g" ossec.conf
-                fi
-            fi
-        fi
-
-        #Reemplazar localhost por shuffle-frontend en el webhook de shuffle en ossec.conf
-        sed -i "s/localhost:/shuffle-frontend:/g" ossec.conf
-        
+        #Reemplazar https://localhost por https://shuffle-frontend en el webhook de shuffle en ossec.conf
+        sed -i "s|https://localhost|https://shuffle-frontend|g" ossec.conf
         #Copiar el archivo al contenedor
         echo -e "${YELLOW}Copiando ossec.conf al contenedor wazuh-manager...${NC}"
         docker cp ossec.conf single-node-wazuh.manager-1:/var/ossec/etc/ossec.conf
@@ -361,10 +296,10 @@ echo -e "${GREEN} Despliegue completado!${NC}"
 echo ""
 echo -e "${BLUE}📋 URLs de acceso:${NC}"
 echo -e "${GREEN}- Wazuh Dashboard: https://localhost:443${NC}"
-echo -e "${GREEN}- MISP: http://localhost:8081 | https://localhost:4433${NC}"
+echo -e "${GREEN}- MISP: http://localhost:8081 | https://$HOST_IP:4433${NC}"
 
 echo -e "${GREEN}- DFIR-IRIS: https://localhost:8443${NC}"
-echo -e "${GREEN}- Shuffle: http://localhost:3001${NC}"
+echo -e "${GREEN}- Shuffle: https://localhost:3443${NC}"
 echo ""
 echo -e "${YELLOW} Para verificar el estado completo:${NC}"
 echo "docker ps -a | grep -E 'wazuh|misp|iris|shuffle'"

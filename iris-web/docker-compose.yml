@@ -25,13 +25,13 @@ services:
     extends:
       file: docker-compose.base.yml
       service: db
-    image: iriswebapp_db_valorh2:latest 
+    image: ${DB_IMAGE_NAME:-ghcr.io/dfir-iris/iriswebapp_db}:${DB_IMAGE_TAG:-v2.4.20}
 
   app:
     extends:
       file: docker-compose.base.yml
       service: app
-    image: iriswebapp_app_valorh2:latest
+    image: ${APP_IMAGE_NAME:-ghcr.io/dfir-iris/iriswebapp_app}:${APP_IMAGE_TAG:-v2.4.20}
     networks:
       - valorh2_network
       - iris_backend

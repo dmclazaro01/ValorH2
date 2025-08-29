@@ -52,7 +52,7 @@ services:
       start_interval: 5s
 
   misp-core:
-    image: misp_core_valorh2:latest
+    image: ghcr.io/misp/misp-docker/misp-core:${CORE_RUNNING_TAG:-latest}
     cap_add:
       - AUDIT_WRITE
     build:
@@ -256,7 +256,7 @@ services:
       - "CONTENT_SECURITY_POLICY=${CONTENT_SECURITY_POLICY}"
 
   misp-modules:
-    image: mispmodules_valorh2:latest
+    image: ghcr.io/misp/misp-docker/misp-modules:${MODULES_RUNNING_TAG:-latest}
     build:
       context: modules/.
       args:
