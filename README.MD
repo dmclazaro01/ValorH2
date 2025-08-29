@@ -25,11 +25,13 @@ Donde webhook_id será el identificador del hook que aparecerá al importar el f
 -MISP no viene preconfigurado, por lo tanto las credenciales serán las predefinidas (están al final del documento). Será necesario para hacer funcionar la aplicación obtener una Auth Key (Admin->Auth Keys->Add authentication key). Anota esa key para introducirla después en Shuffle.
 También será necesario descargar feeds para buscar los eventos (Sync Actions -> Feeds). Seleccionando las dos que aparecen se pueden activar en primer lugar para después ya descargarlas en "Fetch and store all feed data".
 
--El test_valorh2.json es el flujo de trabajo de Shuffle. Viene preconfigurado con API Keys usadas en el despliegue de prueba. En caso de que se hayan usado los backup a priori no deberían cambiar, en caso contrario deberán ajustarse con las nuevas API Keys de MISP, IRIS, etc. Importar este flujo en caso de que no se hayan usado los backups, en caso contrario debería aparecer ya.
+-El test_valorh2.json es el flujo de trabajo de Shuffle. Viene preconfigurado con API Keys usadas en el despliegue de prueba. En caso de que se hayan usado los backup a priori no deberían cambiar, en caso contrario deberán ajustarse con las nuevas API Keys de MISP, etc. Importar este flujo en caso de que no se hayan usado los backups, en caso contrario debería aparecer ya.
 
 -El openapi.json contiene los endpoints de la API de DFIR IRIS. En caso de que de primeras el workflow no reconozca la app se deberá importar dicho JSON en la sección de Create App -> Upload OpenAPI. Nombre de la app: IRIS 2 0 2
 
 -La carpeta de DRL contiene toda la parte de investigación en Threat Intel y DRL. En el flujo de Shuffle se indica donde se usaría esta parte, pero no está activa en el flujo.
+
+-IRIS viene con un backup anterior de su base de datos, por lo que a priori no es necesario cambiar la API_KEY de IRIS en Shuffle.
 
 **CREDENCIALES**
 
